@@ -9,3 +9,4 @@ assignments. The site deploys automatically to GitHub Pages on
 every push to main.
 ## Pages
 - [Home](index.html)
+-[https://github.com/nicardojailall/wdd331-portfolio/tree/main/unit-1/custom-properties]unit-1 index & css
