@@ -1,0 +1,45 @@
+/* ==========================================================================
+   Base Page Styling
+   ========================================================================== */
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 20px;
+    background-color: #f9fafb;
+    color: #1f2937;
+}
+
+.content-box {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================================================
+   ::selection Styles (The Core Demo)
+   ========================================================================== */
+
+/* Global selection style applied to the entire page */
+::selection {
+    color: #ffffff;
+    background-color: #2563eb; /* Vibrant blue */
+}
+
+/* Different selection style scoped specifically to blockquotes */
+blockquote::selection {
+    color: #1a1a1a;
+    background-color: #fcd34d; /* Bright yellow */
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Style blockquote container appearance */
+blockquote {
+    margin: 20px 0;
+    padding: 15px 20px;
+    border-left: 4px solid #fcd34d;
+    background-color: #fffbeb;
+    font-style: italic;
+}
