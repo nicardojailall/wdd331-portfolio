@@ -3,49 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Marker and Backdrop Demo</title>
+    <title>CSS ::backdrop Demo</title>
+    <!-- Link to the external CSS file -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <main class="container">
-        <h1>CSS Marker and Backdrop Examples</h1>
-
-        <h2>1. Custom Emoji Bullets</h2>
-        <ul class="emoji-list">
-            <li>Launch the project layout</li>
-            <li>Style native elements directly</li>
-            <li>Deploy modern semantic CSS</li>
-        </ul>
-
-        <h2>2. Advanced Step-by-Step Numbering</h2>
-        <ol class="step-list">
-            <li>Write semantic HTML tags</li>
-            <li>Apply property limits</li>
-            <li>Refresh the browser window</li>
-        </ol>
-
-        <h2>3. Styled Accordion Arrow</h2>
-        <details>
-            <summary>Click to expand disclosure</summary>
-            <p>The native summary element behaves as a list-item, allowing marker styling.</p>
-        </details>
-
-        <h2>4. Modal Dialog with Backdrop</h2>
+    <main class="page-content">
+        <h1>CSS <code>::backdrop</code> Example</h1>
+        <p>Clicking the button opens a modal. The page content behind it will become frosted and blurred.</p>
+        
+        <!-- Button to launch the native dialog modal -->
         <button id="openBtn" class="btn primary-btn">Open Modal Dialog</button>
     </main>
 
+    <!-- Native HTML Modal Dialog Element -->
     <dialog id="modalWindow">
         <h2>Modal Window</h2>
-        <p>This native dialog box displays a frosted blur overlay behind it.</p>
+        <p>This is a native dialog box. Notice the darkened, blurred overlay behind it covering the viewport.</p>
         <button id="closeBtn" class="btn secondary-btn">Close Modal</button>
     </dialog>
 
+    <!-- JavaScript to toggle the native modal -->
     <script>
         const modal = document.getElementById('modalWindow');
         const openBtn = document.getElementById('openBtn');
         const closeBtn = document.getElementById('closeBtn');
 
+        // showModal() is required to trigger the ::backdrop pseudo-element
         openBtn.addEventListener('click', () => modal.showModal());
         closeBtn.addEventListener('click', () => modal.close());
     </script>
