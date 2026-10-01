@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Marker and Backdrop Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+        <h1>CSS Marker and Backdrop Examples</h1>
+
+        <h2>1. Custom Emoji Bullets</h2>
+        <ul class="emoji-list">
+            <li>Launch the project layout</li>
+            <li>Style native elements directly</li>
+            <li>Deploy modern semantic CSS</li>
+        </ul>
+
+        <h2>2. Advanced Step-by-Step Numbering</h2>
+        <ol class="step-list">
+            <li>Write semantic HTML tags</li>
+            <li>Apply property limits</li>
+            <li>Refresh the browser window</li>
+        </ol>
+
+        <h2>3. Styled Accordion Arrow</h2>
+        <details>
+            <summary>Click to expand disclosure</summary>
+            <p>The native summary element behaves as a list-item, allowing marker styling.</p>
+        </details>
+
+        <h2>4. Modal Dialog with Backdrop</h2>
+        <button id="openBtn" class="btn primary-btn">Open Modal Dialog</button>
+    </main>
+
+    <dialog id="modalWindow">
+        <h2>Modal Window</h2>
+        <p>This native dialog box displays a frosted blur overlay behind it.</p>
+        <button id="closeBtn" class="btn secondary-btn">Close Modal</button>
+    </dialog>
+
+    <script>
+        const modal = document.getElementById('modalWindow');
+        const openBtn = document.getElementById('openBtn');
+        const closeBtn = document.getElementById('closeBtn');
+
+        openBtn.addEventListener('click', () => modal.showModal());
+        closeBtn.addEventListener('click', () => modal.close());
+    </script>
+
+</body>
+</html>
