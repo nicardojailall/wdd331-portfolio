@@ -1,1 +1,66 @@
 
+/* ==========================================================================
+   Base Page Styling
+   ========================================================================== */
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 20px;
+    background-color: #f9fafb;
+    color: #1f2937;
+}
+
+h2 {
+    color: #111827;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 8px;
+    margin-top: 30px;
+}
+
+li, summary {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   DEMO 1: Unordered List with Custom Color & Emojis
+   ========================================================================== */
+.emoji-list li::marker {
+    content: "🚀 ";
+    font-size: 1.2em;
+}
+
+/* ==========================================================================
+   DEMO 2: Ordered List with Custom Styled Counters
+   ========================================================================== */
+.step-list {
+    counter-reset: my-steps; /* Initialize counter */
+}
+
+.step-list li {
+    counter-increment: my-steps; /* Increment counter per item */
+}
+
+.step-list li::marker {
+    content: "Step " counter(my-steps) " » ";
+    color: #059669; /* Green marker */
+    font-weight: bold;
+    font-family: monospace;
+}
+
+/* ==========================================================================
+   DEMO 3: HTML Details Arrow (display: list-item)
+   ========================================================================== */
+summary::marker {
+    color: #2563eb; /* Changes the default triangle arrow to blue */
+    font-size: 1.2em;
+}
+
+details {
+    background: #ffffff;
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+}
