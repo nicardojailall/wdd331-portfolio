@@ -1,5 +1,13 @@
-/* Non-color tokens: spacing, typography, borders, shadows.
-   These values should be referenced by every other layer. */
+/* Layout and structural tokens: define spacing, typography, and borders */
 :root {
-    /* TODO: Define spacing, font, radius, and shadow tokens here */
+    /* Spacing tokens scale */
+    --spacing-sm: 0.5rem;          
+    --spacing-md: 1rem;            
+    --spacing-lg: 2rem;            
+
+    /* Typography */
+    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+
+    /* Shape and Borders */
+    --border-radius: 0.375rem;     
 }
