@@ -2,3 +2,40 @@
    Use native nesting for pseudo-classes and modifiers. */
 
 /* TODO: Style the button components */
+/* Buttons Component */
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.btn {
+    &.primary {
+        background-color: var(--color-primary);
+        color: #ffffff;
+
+        /* Styling non-disabled states explicitly */
+        &:not(:disabled):hover {
+            opacity: 0.9;
+        }
+    }
+
+    &.secondary {
+        background-color: transparent;
+        color: var(--color-primary);
+        border: 2px solid var(--color-primary);
+        padding: calc(var(--spacing-sm) - 1px) var(--spacing-md); /* Keeps height uniform */
+
+        &:not(:disabled):hover {
+            background-color: var(--color-primary);
+            color: #ffffff;
+        }
+    }
+
+    /* Requirement: focus-visible matching guidelines */
+    &:focus-visible {
+        outline: 3px solid var(--color-accent);
+        outline-offset: 2px;
+    }
+}

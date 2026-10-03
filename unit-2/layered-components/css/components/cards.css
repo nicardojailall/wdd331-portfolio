@@ -2,3 +2,53 @@
    Use native nesting. Reference tokens with var(). */
 
 /* TODO: Style the card components */
+/* Cards Layout & Card Component */
+.cards {
+    display: grid;
+    /* Basic grid setup—responsive wrap */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    /* Requirement: Fluid layout gap using clamp() */
+    gap: clamp(var(--spacing-md), 3vw, var(--spacing-lg));
+    margin-top: var(--spacing-md);
+}
+
+.card {
+    background-color: #ffffff; /* Solid surface color */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+    p {
+        flex-grow: 1;
+    }
+}
+
+.card-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary);
+    font-weight: bold;
+    margin-bottom: var(--spacing-sm);
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 0.875rem;
+
+    span {
+        font-style: italic;
+        color: var(--color-text);
+        opacity: 0.8;
+    }
+}

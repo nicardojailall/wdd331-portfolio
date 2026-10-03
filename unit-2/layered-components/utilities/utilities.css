@@ -3,3 +3,33 @@
    by layer order without needing !important. */
 
 /* TODO: Add any utility classes you find useful */
+/* Utility classes: Single-purpose helper classes. 
+   Because they are imported last, they cleanly override component 
+   defaults naturally via source order without using !important. */
+
+/* Utility 1: Hide items visually but keep them readable for screen readers */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Utility 2: Center text content quickly */
+.text-center {
+    text-align: center;
+}
+
+/* Utility 3: Add explicit spacing block utilities using tokens */
+.margin-bottom-lg {
+    margin-bottom: var(--spacing-lg);
+}
+
+.padding-md {
+    padding: var(--spacing-md);
+}
