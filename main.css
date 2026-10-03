@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
 }
+
 :root {
     --color-bg: #f4f6f8;
     --color-text: #1e293b;
@@ -15,6 +16,7 @@
     --space-lg: 2rem;
     --font-body: system-ui, -apple-system, sans-serif;
 }
+
 body {
     font-family: var(--font-body);
     color: var(--color-text);
@@ -22,14 +24,24 @@ body {
     line-height: 1.6;
     padding: var(--space-lg);
 }
+
+/* Fix: Adds padding back to the list so bullets have room to appear */
+nav ul {
+    list-style-type: disc;
+    padding-left: var(--space-md);
+    margin-top: var(--space-sm);
+}
+
+nav li {
+    margin-bottom: var(--space-sm);
+}
+
 a {
     color: var(--color-primary);
+    text-decoration: none;
 }
+
 a:hover {
     color: var(--color-primary-hover);
-a {
-    color: var(--color-primary);
-}
-a:hover {
-    color: var(--color-primary-hover);
+    text-decoration: underline;
 }
