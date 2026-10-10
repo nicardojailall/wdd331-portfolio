@@ -1,0 +1,65 @@
+/* ==========================================================================
+   Base Page & Content Styles
+   ========================================================================== */
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 40px;
+    background: linear-gradient(135deg, #f3f4f6, #d1d5db); /* Gradient highlights the blur effect */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #1f2937;
+}
+
+.page-content {
+    text-align: center;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   ::backdrop Selector (The Core Demo)
+   ========================================================================== */
+/* The box that fills the entire viewport directly underneath the modal */
+dialog::backdrop {
+    background-color: rgba(15, 23, 42, 0.4); /* Dark translucent navy slate tint */
+    backdrop-filter: blur(6px);              /* Blurs underlying webpage elements */
+}
+
+/* ==========================================================================
+   Dialog Element & Button Component Styling
+   ========================================================================== */
+dialog {
+    border: none;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 400px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+    background: #ffffff;
+}
+
+/* Base button UI styles */
+.btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.primary-btn {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.secondary-btn {
+    background-color: #e5e7eb;
+    color: #374151;
+    margin-top: 15px;
+}

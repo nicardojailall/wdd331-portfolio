@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attribute Selector Demo</title>
+  <!-- Links to your separate external CSS file -->
+  <link rel="stylesheet" href="main4.css">
+</head>
+<body>
+
+  <!-- Item 1: Starts With -->
+  <div class="example-group">
+    <a href="https://google.com">Secure Link</a>
+    <p class="description">This turns <strong>green</strong> because its address starts exactly with <code>https</code>.</p>
+  </div>
+
+  <!-- Item 2: Contains -->
+  <div class="example-group">
+    <a href="mailto:info@example.com">Email Us</a>
+    <p class="description">This turns <strong>orange</strong> because it contains the word <code>mail</code> anywhere inside it.</p>
+  </div>
+
+  <!-- Item 3: Ends With -->
+  <div class="example-group">
+    <a href="report.pdf">Download PDF</a>
+    <p class="description">This turns <strong>red</strong> because the file destination ends exactly with <code>.pdf</code>.</p>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+/* Card components: .card-group, .cards grid, .card, .card-tag, .card-footer
+   Use native nesting. Reference tokens with var(). */
+
+/* TODO: Style the card components */
+/* Cards Layout & Card Component */
+.cards {
+    display: grid;
+    /* Basic grid setup—responsive wrap */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    /* Requirement: Fluid layout gap using clamp() */
+    gap: clamp(var(--spacing-md), 3vw, var(--spacing-lg));
+    margin-top: var(--spacing-md);
+}
+
+.card {
+    background-color: #ffffff; /* Solid surface color */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+    p {
+        flex-grow: 1;
+    }
+}
+
+.card-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary);
+    font-weight: bold;
+    margin-bottom: var(--spacing-sm);
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 0.875rem;
+
+    span {
+        font-style: italic;
+        color: var(--color-text);
+        opacity: 0.8;
+    }
+}
+@layer components {
+  .card-group {
+    margin-bottom: calc(var(--spacing-layout-lg) * 2);
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: var(--spacing-layout-md);
+      letter-spacing: -0.02em;
+    }
+  }
+
+  .cards {
+    display: grid;
+    gap: calc(var(--spacing-layout-md) * 1.5);
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  .card {
+    background-color: var(--color-ui-surface);
+    padding: var(--spacing-layout-md);
+    border-radius: var(--border-radius-component);
+    box-shadow: var(--card-shadow-custom, 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05));
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-layout-sm);
+
+    .card-tag {
+      align-self: flex-start;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.625rem;
+      color: var(--color-brand-primary);
+      background: #eeebff; 
+      border-radius: 4px;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    p {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+      flex-grow: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: var(--spacing-layout-sm);
+      padding-top: var(--spacing-layout-sm);
+      border-top: 1px solid #f1f5f9;
+      font-size: 0.875rem;
+
+      span {
+        color: var(--color-text-muted);
+      }
+
+      a {
+        font-weight: 500;
+      }
+    }
+  }
+}
+

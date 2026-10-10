@@ -1,0 +1,29 @@
+/* Layout and structural tokens: define spacing, typography, and borders */
+:root {
+    /* Spacing tokens scale */
+    --spacing-sm: 0.5rem;          
+    --spacing-md: 1rem;            
+    --spacing-lg: 2rem;            
+
+    /* Typography */
+    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+
+    /* Shape and Borders */
+    --border-radius: 0.375rem;     
+}
+
+@layer tokens {
+  :root {
+    /* Spacing */
+    --spacing-layout-sm: 0.75rem;
+    --spacing-layout-md: 1.25rem;
+    --spacing-layout-lg: 2rem;
+
+    /* Typography */
+    --font-family-interface: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-size-base: 1rem;
+
+    /* Borders */
+    --border-radius-component: 12px;
+  }
+}

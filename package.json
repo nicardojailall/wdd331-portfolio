@@ -1,0 +1,24 @@
+{
+  "name": "wdd331-portfolio",
+  "version": "1.0.0",
+  "description": "**Student:** Nicardo Emanuel Jailall\r **Semester:** Fall Semester 2026\r **Live Site:** [View Site](https://github.io)\r ## About\r This repository is my portfolio for WDD 331R: Advanced CSS.\r Each week I add new pages and styles as I work through the course\r assignments. The site deploys automatically to GitHub Pages on\r every push to main.\r ## Pages\r - [Home](index.html)\r -[https://github.com]\r unit-1 index & css\r - Unit-2 Layered-Components\r -https://github.io",
+  "main": "index.js",
+  "scripts": {
+    "build": "lightningcss --bundle --minify --targets \">= 0.25%\" css/main.css -o dist/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com"
+  },
+  "homepage": "https://github.com",
+  "devDependencies": {
+    "lightningcss-cli": "^1.33.0"
+  }
+}
