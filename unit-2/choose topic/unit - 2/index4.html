@@ -1,42 +1,19 @@
+html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Attribute Selector Showcase</title>
-  <!-- Link to the external CSS file -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Card 1: Active Status (Tested Case-Insensitive) -->
-  <div class="card" data-status="ACTIVE">
-    <div class="card-header">
-      <div class="avatar">A</div>
-      <div>
-        <h2 class="title">System Operations</h2>
-        <p class="subtitle">Case-Insensitive Match</p>
-      </div>
-    </div>
+  <!-- ^= Starts with -->
+  <a href="https://google.com">Secure Link</a>
 
-    <div class="divider"></div>
+  <!-- *= Contains -->
+  <a href="mailto:info@example.com">Email Us</a>
 
-    <p class="description">
-      This card's green top border is applied using a case-insensitive attribute selector. Even though the HTML says "ACTIVE" in uppercase, the CSS catches it.
-    </p>
-
-    <!-- Substring Matches via Links -->
-    <div class="link-group">
-      <a href="https://example.com" class="card-link">Secure Dashboard</a>
-      <a href="http://example.com" class="card-link">Legacy Console</a>
-      <a href="/downloads/user-manual.pdf" class="card-link">Download Manual</a>
-    </div>
-
-    <!-- Combined State Selector Button -->
-    <button class="action-btn" data-state="loading" data-priority="high">
-      Processing...
-    </button>
-  </div>
+  <!-- $= Ends with -->
+  <a href="report.pdf">Download PDF</a>
 
 </body>
 </html>
