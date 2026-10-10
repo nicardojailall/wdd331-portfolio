@@ -1,0 +1,50 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailwind CSS Showcase</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://jsdelivr.net"></script>
+</head>
+<body class="bg-slate-100 flex items-center justify-center min-h-screen p-4">
+
+  <!-- Card Container -->
+  <div class="bg-white rounded-2xl shadow-xl p-6 max-w-sm w-full transition-transform transform hover:scale-105 duration-300">
+    
+    <!-- Profile Image & Header -->
+    <div class="flex items-center space-x-4">
+      <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-xl font-bold shadow-md">
+        TW
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-slate-800">Tailwind Explorer</h2>
+        <p class="text-sm text-blue-600 font-medium">Utility-First Framework</p>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t border-slate-100 my-4"></div>
+
+    <!-- Card Body -->
+    <p class="text-slate-600 text-sm leading-relaxed">
+      This card is styled completely with atomic Tailwind classes. There are zero lines of custom external CSS required to build this layout.
+    </p>
+
+    <!-- Tag Badges -->
+    <div class="mt-4 flex flex-wrap gap-2">
+      <span class="bg-slate-100 text-slate-700 text-xs px-2.5 py-1 rounded-full font-semibold">#html</span>
+      <span class="bg-blue-50 text-blue-700 text-xs px-2.5 py-1 rounded-full font-semibold">#css</span>
+      <span class="bg-emerald-50 text-emerald-700 text-xs px-2.5 py-1 rounded-full font-semibold">#utilityFirst</span>
+    </div>
+
+    <!-- Action Button -->
+    <button class="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-4 rounded-xl shadow-md shadow-blue-200 transition-colors duration-200 cursor-pointer text-center block">
+      Get Started
+    </button>
+    
+  </div>
+
+</body>
+</html>
