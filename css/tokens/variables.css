@@ -11,3 +11,19 @@
     /* Shape and Borders */
     --border-radius: 0.375rem;     
 }
+
+@layer tokens {
+  :root {
+    /* Spacing */
+    --spacing-layout-sm: 0.75rem;
+    --spacing-layout-md: 1.25rem;
+    --spacing-layout-lg: 2rem;
+
+    /* Typography */
+    --font-family-interface: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-size-base: 1rem;
+
+    /* Borders */
+    --border-radius-component: 12px;
+  }
+}

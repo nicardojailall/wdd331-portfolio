@@ -108,3 +108,26 @@ button {
         opacity: 0.5;
     }
 }
+
+@layer base {
+  body {
+    font-family: var(--font-family-interface);
+    font-size: var(--font-size-base);
+    color: var(--color-text-main);
+    background-color: var(--color-ui-canvas);
+    line-height: 1.6;
+    padding: clamp(1rem, 5vw, 3rem);
+
+    a {
+      color: var(--color-brand-primary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--color-brand-accent);
+        text-decoration: underline;
+      }
+    }
+  }
+}
+

@@ -39,3 +39,10 @@
         }
     }
 }
+@layer components {
+  .site-nav {
+    padding: var(--spacing-layout-sm) 0;
+    margin-bottom: var(--spacing-layout-lg);
+  }
+}
+
