@@ -1,4 +1,3 @@
-/* Global Reset & Base Setup */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,7 +6,7 @@
 
 body {
   background-color: #f1f5f9;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,7 +14,9 @@ body {
   padding: 1rem;
 }
 
-/* Card Layout */
+/* ==========================================================================
+   2. Core Card Component Layout
+   ========================================================================== */
 .card {
   background-color: #ffffff;
   border-radius: 1rem;
@@ -24,13 +25,13 @@ body {
   max-width: 24rem;
   width: 100%;
   transition: transform 0.3s ease;
+  border-top: 4px solid transparent; /* Base border placeholder */
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: translateY(-4px);
 }
 
-/* Header Profile Info */
 .card-header {
   display: flex;
   align-items: center;
@@ -38,9 +39,9 @@ body {
 }
 
 .avatar {
-  width: 4rem;
-  height: 4rem;
-  background-color: #3b82f6;
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: #475569;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -48,24 +49,21 @@ body {
   color: #ffffff;
   font-size: 1.25rem;
   font-weight: 700;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .title {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: #1e293b;
 }
 
 .subtitle {
   font-size: 0.875rem;
-  color: #2563eb;
-  font-weight: 500;
+  color: #64748b;
 }
 
-/* Structural Elements */
 .divider {
-  border-top: 1px solid #f1f5f9;
+  border-top: 1px solid #e2e8f0;
   margin: 1rem 0;
 }
 
@@ -75,40 +73,74 @@ body {
   line-height: 1.6;
 }
 
-/* Badges */
-.badge-container {
-  margin-top: 1rem;
+.link-group {
+  margin-top: 1.25rem;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 0.5rem;
 }
 
-.badge {
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.25rem 0.625rem;
-  border-radius: 9999px;
+.card-link {
+  font-size: 0.875rem;
+  color: #3b82f6;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
 }
 
-.badge-html { background-color: #f1f5f9; color: #334155; }
-.badge-css { background-color: #eff6ff; color: #1d4ed8; }
-.badge-vanilla { background-color: #ecfdf5; color: #047857; }
+.card-link:hover {
+  text-decoration: underline;
+}
 
-/* Button Action */
+/* ==========================================================================
+   3. Advanced Attribute Selectors
+   ========================================================================== */
+
+/* --- Case-Insensitive Selector --- */
+/* Targets data-status="active" regardless of capitalization (e.g., ACTIVE, Active, acTiVe) */
+.card[data-status="active" i] {
+  border-top-color: #10b981;
+}
+
+/* --- Substring Selectors --- */
+/* Starts With (^=): Targets links beginning strictly with secure https:// */
+.card-link[href^="https://"]::before {
+  content: "🔒 ";
+  font-size: 0.75rem;
+}
+
+/* Ends With ($=): Targets links pointing directly to static .pdf documents */
+.card-link[href$=".pdf"]::after {
+  content: " (PDF 📄)";
+  font-size: 0.75rem;
+  color: #ef4444;
+  margin-left: 0.25rem;
+}
+
+/* --- Combined / State-Based Selectors --- */
+/* Targets button ONLY when it is simultaneously in a loading state AND marked high priority */
 .action-btn {
   margin-top: 1.5rem;
   width: 100%;
-  background-color: #2563eb;
-  color: #ffffff;
-  font-weight: 500;
-  padding: 0.625rem 1rem;
   border: none;
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+  border-radius: 0.5rem;
+  padding: 0.625rem 1rem;
+  font-weight: 600;
+  background-color: #3b82f6;
+  color: #ffffff;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
-.action-btn:hover {
-  background-color: #1d4ed8;
+.action-btn[data-state="loading"][data-priority="high"] {
+  background-color: #94a3b8;
+  color: #f1f5f9;
+  cursor: not-allowed;
+  animation: pulseEffect 1.5s infinite ease-in-out;
+}
+
+/* Animation for combined selector state */
+@keyframes pulseEffect {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
 }
