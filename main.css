@@ -34,10 +34,20 @@ body {
 a {
     color: var(--color-primary);
     text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem; /* Space between text and icon */
 
     &:hover {
         color: var(--color-primary-hover);
         text-decoration: underline;
+    }
+
+    /* Automatically adds an indicator icon to links opening in new tabs */
+    &[target="_blank"]::after {
+        content: "↗";
+        font-size: 0.85em;
+        font-weight: bold;
     }
 
     /* Attribute Selectors for Specific Link Types */
