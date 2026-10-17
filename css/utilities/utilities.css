@@ -1,11 +1,8 @@
-/* Utility classes: single-purpose helpers.
-   These live in the last layer so they override components
-   by layer order without needing !important. */
-
-/* TODO: Add any utility classes you find useful */
-/* Utility classes: Single-purpose helper classes. 
-   Because they are imported last, they cleanly override component 
-   defaults naturally via source order without using !important. */
+/* ========================================================================== */
+/* UTILITY LAYER: Single-purpose layout helpers                               */
+/* ========================================================================== */
+/* These live in your final architecture layer or file so they safely override 
+   component standards by structural order without relying on !important. */
 
 /* Utility 1: Hide items visually but keep them readable for screen readers */
 .visually-hidden {
@@ -15,7 +12,7 @@
     padding: 0;
     margin: -1px;
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%); /* Modern standards compliance override for clipping bounding boxes */
     white-space: nowrap;
     border: 0;
 }

@@ -8,7 +8,7 @@
     --font-size-md: 1.6rem;
     --font-size-lg: 1.8rem;
 
-    /* Legacy typography aliases */
+    /* Legacy typography fallbacks */
     --font-body: var(--font-family-sans);
     --font-code: var(--font-family-mono);
     --text-sm: var(--font-size-sm);
@@ -24,7 +24,7 @@
     --spacing-lg: 24px;
     --spacing-xl: 32px;
 
-    /* Legacy spacing aliases for backwards compatibility */
+    /* Legacy spacing fallbacks */
     --space-xs: var(--spacing-xs);
     --space-sm: var(--spacing-sm);
     --space-md: var(--spacing-md);
@@ -38,7 +38,7 @@
     --radius-md: 6px;
     --radius-lg: 8px;
 
-    /* Legacy radii aliases */
+    /* Legacy radii fallbacks */
     --border-radius-sm: var(--radius-sm);
     --border-radius-md: var(--radius-md);
     --border-radius-lg: var(--radius-lg);
@@ -48,7 +48,7 @@
     /* ========================================== */
     --transition-base: 0.2s ease;
 
-    /* Legacy transition aliases */
+    /* Legacy transition fallbacks */
     --transition-fast: var(--transition-base);
 
     /* ========================================== */

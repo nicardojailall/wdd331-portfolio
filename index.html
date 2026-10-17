@@ -8,15 +8,39 @@
     <link rel="stylesheet" href="dist/styles.css">
 </head>
 <body>
-    <header>
+    <header class="site-header">
         <h1>Nicardo Jailall (WDD 331R Advanced CSS)</h1>
+
+        <!-- Added the Theme Toggle disclosure widget here -->
+        <details class="theme-menu">
+            <summary class="theme-control">
+                <span class="visually-hidden">Color scheme</span>
+            </summary>
+            <div class="theme-extra" role="group" aria-label="Choose color scheme">
+                <label class="theme-control theme-pick" data-theme-pick="light">
+                    <input name="theme-preference" type="radio" value="light">
+                    <span aria-hidden="true">☼️</span>
+                    <span class="visually-hidden">Light</span>
+                </label>
+                <label class="theme-control theme-pick" data-theme-pick="system">
+                    <input name="theme-preference" type="radio" value="system" checked>
+                    <span aria-hidden="true">⚙️</span>
+                    <span class="visually-hidden">System default</span>
+                </label>
+                <label class="theme-control theme-pick" data-theme-pick="dark">
+                    <input name="theme-preference" type="radio" value="dark">
+                    <span aria-hidden="true">🌖</span>
+                    <span class="visually-hidden">Dark</span>
+                </label>
+            </div>
+        </details>
     </header>
 
     <main>
         <p>Welcome to my professional development portfolio. I am a student at BYU-Idaho studying advanced frontend development, and this website serves as a live gallery of the projects, components, and responsive layouts I will build throughout the semester.</p>
 
-        <!-- Added Assignment Navigation with Live Deployment Link -->
-        <nav>
+        <!-- Wrapped in structural class matching your component design token rules -->
+        <nav class="site-nav">
             <h2>Assignments</h2>
             <ul>
                 <li>
