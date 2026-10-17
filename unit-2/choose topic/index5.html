@@ -1,16 +1,35 @@
-<!-- Changing the class from 'blue-theme' to 'green-theme' updates everything instantly -->
-<div class="card blue-theme">
-  <svg class="icon" viewBox="0 0 24 24">
-    <circle cx="12" cy="12" r="10" />
-    <path d="M12 8v8M8 12h8" />
-  </svg>
-  <span>Add New Project</span>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>currentColor - HTML Only</title>
+</head>
+<body style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; min-height: 100vh; margin: 0; background-color: #f8f9fa; font-family: sans-serif;">
 
-<div class="card green-theme">
-  <svg class="icon" viewBox="0 0 24 24">
-    <circle cx="12" cy="12" r="10" />
-    <path d="M12 8v8M8 12h8" />
-  </svg>
-  <span>Success! Item Added</span>
-</div>
+  <!-- BLUE CARD -->
+  <!-- The border and the SVG icon automatically turn blue because color is set to #0066cc -->
+  <div style="display: inline-flex; align-items: center; gap: 12px; padding: 14px 24px; font-weight: bold; font-size: 16px; border-radius: 8px; color: #0066cc; background-color: #e6f0fa; border: 2px solid currentColor;">
+    
+    <svg viewBox="0 0 24 24" style="width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 8v8M8 12h8" />
+    </svg>
+    
+    <span>Add New Project</span>
+  </div>
+
+  <!-- GREEN CARD -->
+  <!-- The border and the SVG icon automatically turn green because color is set to #1e7e34 -->
+  <div style="display: inline-flex; align-items: center; gap: 12px; padding: 14px 24px; font-weight: bold; font-size: 16px; border-radius: 8px; color: #1e7e34; background-color: #e2f0d9; border: 2px solid currentColor;">
+    
+    <svg viewBox="0 0 24 24" style="width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 8v8M8 12h8" />
+    </svg>
+    
+    <span>Success! Item Added</span>
+  </div>
+
+</body>
+</html>
