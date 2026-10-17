@@ -2,9 +2,55 @@
 .card {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 24px;
+  gap: 12px;
+  padding: 14px 24px;
   font-family: sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #cc0022;
+
+  /* The magic happens here: the border automatically uses the text color */
+  border: 2px solid currentColor;
+}
+
+/* SVG Icon styling */
+.card-icon {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  
+  /* The icon outlines and shapes automatically match the text color */
+  stroke: currentColor;
+}
+
+/* Theme classes: We ONLY change the text color, and everything else adapts */
+.card-blue {
+  color: #0066cc;
+  background-color: #e6f0fa;
+}/* Global body configuration */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f8f9fa;
+  font-family: sans-serif;
+}
+
+/* Base card styling */
+.card {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 24px;
   font-weight: bold;
   font-size: 16px;
   border-radius: 8px;
@@ -15,23 +61,40 @@
 }
 
 /* SVG Icon styling */
-.icon {
-  width: 20px;
-  height: 20px;
+.card-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
   
   /* The icon outlines and shapes automatically match the text color */
   stroke: currentColor;
-  stroke-width: 2;
-  fill: none;
 }
 
 /* Theme classes: We ONLY change the text color, and everything else adapts */
-.blue-theme {
+.card-blue {
   color: #0066cc;
   background-color: #e6f0fa;
 }
 
-.green-theme {
-  color: #1e7e34;
-  background-color: #d4edda;
+.card-green {
+  color: #00cc33;
+  background-color: #e2f0d9;
+}
+
+
+
+
+/* Global body configuration */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f8f9fa;
 }
