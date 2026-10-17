@@ -1,0 +1,37 @@
+/* Base card styling */
+.card {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  /* The magic happens here: the border automatically uses the text color */
+  border: 2px solid currentColor;
+}
+
+/* SVG Icon styling */
+.icon {
+  width: 20px;
+  height: 20px;
+  
+  /* The icon outlines and shapes automatically match the text color */
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+/* Theme classes: We ONLY change the text color, and everything else adapts */
+.blue-theme {
+  color: #0066cc;
+  background-color: #e6f0fa;
+}
+
+.green-theme {
+  color: #1e7e34;
+  background-color: #d4edda;
+}
