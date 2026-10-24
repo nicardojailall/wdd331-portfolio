@@ -18,27 +18,4 @@
 
 @import url('utilities/utilities.css') layer(utilities);
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-:root {
-    --color-bg: #f4f6f8;
-    --color-text: #1e293b;
-    --color-primary: #006eb6;
-    --color-primary-hover: #004f7f;
-    --space-sm: 0.5rem;
-    --space-md: 1rem;
-    --space-lg: 2rem;
-    --font-body: system-ui, -apple-system, sans-serif;
-    
-    /* Attribute Selector Colors */
-    --color-secure: #2e7d32;   /* Green */
-    --color-email: #ef6c00;    /* Orange */
-    --color-pdf: #c62828;      /* Red */
-}
 
