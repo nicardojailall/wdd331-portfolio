@@ -4,81 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visual Effects Showcase</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
-<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #f8f9fa; color: #333; line-height: 1.6; margin: 0; padding: 0;">
+<body>
 
-    <nav class="site-nav" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background-color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100;">
-        <a href="../../index.html" style="text-decoration: none; color: #495057; font-weight: 500;">&larr; Home</a>
-        <ul style="display: flex; list-style: none; gap: 1.5rem; margin: 0; padding: 0;">
-            <li><a href="#" style="text-decoration: none; color: #495057; font-weight: 500;">Gallery</a></li>
-            <li><a href="#" aria-current="page" style="text-decoration: none; color: #007bff; font-weight: 500; border-bottom: 2px solid #007bff; padding-bottom: 0.25rem;">Effects</a></li>
-            <li><a href="#" style="text-decoration: none; color: #495057; font-weight: 500;">About</a></li>
+    <nav>
+        <a href="../../index.html">&larr; Home</a>
+        <ul>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#" aria-current="page">Effects</a></li>
+            <li><a href="#">About</a></li>
         </ul>
     </nav>
 
-    <!-- HERO: Use a gradient overlay and text-shadow for depth -->
-    <header class="hero" style="position: relative; height: 400px; overflow: hidden; display: flex; align-items: center; justify-content: center; color: #fff; text-align: center; background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 123, 255, 0.4) 100%);">
-        <img
-            class="hero-image"
-            src="https://picsum.photos/seed/hero-effects/1200/500"
-            alt="Landscape placeholder for hero section"
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;"
-        >
-        <div class="hero-content" style="position: relative; z-index: 3; padding: 0 1rem;">
-            <h1 style="font-size: 3rem; margin: 0 0 1rem 0; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);">Visual Effects Showcase</h1>
-            <p style="font-size: 1.25rem; margin: 0; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);">Shadows, gradients, and filters working together.</p>
+    <header class="hero">
+        <img src="image_EWveSo.png" alt="Misty coastline beach landscape" class="hero-bg">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Visual Effects Showcase</h1>
+            <p class="hero-subtitle">Shadows, gradients, and filters working together.</p>
         </div>
     </header>
 
-    <main style="max-width: 1200px; margin: 3rem auto; padding: 0 1.5rem; display: flex; flex-direction: column; gap: 4rem;">
+    <main>
         
-        <!-- CARDS: Elevation shadows, hover transitions -->
-        <section class="card-section">
-            <h2 style="font-size: 1.8rem; margin: 0 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid #007bff; display: inline-block;">Elevation Cards</h2>
-            <div class="cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <section>
+            <h2>Elevation Cards</h2>
+            <div class="card-grid">
                 
-                <article class="card" style="background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.05);">
-                    <img
-                        class="card-image"
-                        src="https://picsum.photos/seed/card-1/400/250"
-                        alt="Placeholder image"
-                        style="width: 100%; height: 200px; object-fit: cover;"
-                    >
-                    <div class="card-body" style="padding: 1.5rem;">
-                        <h3 style="margin: 0 0 0.5rem 0;">Layered Shadows</h3>
-                        <p style="margin: 0;">
+                <article class="elevation-card">
+                    <div class="card-image-wrapper">
+                        <img src="image_Sf1qgV.png" alt="Pineapple on a grassy field" class="card-image">
+                    </div>
+                    <div class="card-body">
+                        <h3>Layered Shadows</h3>
+                        <p>
                             Multiple shadow layers create realistic depth
                             that changes on hover.
                         </p>
                     </div>
                 </article>
 
-                <article class="card" style="background: linear-gradient(180deg, #ffffff 0%, #f1f3f5 100%); border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.05);">
-                    <img
-                        class="card-image"
-                        src="https://picsum.photos/seed/card-2/400/250"
-                        alt="Placeholder image"
-                        style="width: 100%; height: 200px; object-fit: cover;"
-                    >
-                    <div class="card-body" style="padding: 1.5rem;">
-                        <h3 style="margin: 0 0 0.5rem 0;">Gradient Surfaces</h3>
-                        <p style="margin: 0;">
+                <article class="elevation-card">
+                    <div class="card-image-wrapper">
+                        <img src="image_8csMb4.png" alt="Hands holding an open paper map" class="card-image">
+                    </div>
+                    <div class="card-body">
+                        <h3>Gradient Surfaces</h3>
+                        <p>
                             A subtle gradient on the card background adds
                             dimension without distracting from content.
                         </p>
                     </div>
                 </article>
 
-                <article class="card" style="background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.05);">
-                    <img
-                        class="card-image"
-                        src="https://picsum.photos/seed/card-3/400/250"
-                        alt="Placeholder image"
-                        style="width: 100%; height: 200px; object-fit: cover; filter: grayscale(100%);"
-                    >
-                    <div class="card-body" style="padding: 1.5rem;">
-                        <h3 style="margin: 0 0 0.5rem 0;">Filtered Images</h3>
-                        <p style="margin: 0;">
+                <article class="elevation-card filtered-card">
+                    <div class="card-image-wrapper">
+                        <img src="image_-duCnq.png" alt="Black and white city skyline panoramic view" class="card-image">
+                    </div>
+                    <div class="card-body">
+                        <h3>Filtered Images</h3>
+                        <p>
                             A grayscale or sepia filter on the image that
                             lifts on hover draws attention to active cards.
                         </p>
@@ -88,19 +74,11 @@
             </div>
         </section>
 
-        <!-- GLASS PANEL: backdrop-filter for frosted glass -->
-        <section class="glass-section" style="position: relative; height: 350px; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-            <div class="glass-background" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
-                <img
-                    src="https://picsum.photos/seed/glass-bg/1200/400"
-                    alt="Background image behind glass panel"
-                    class="glass-bg-image"
-                    style="width: 100%; height: 100%; object-fit: cover;"
-                >
-            </div>
-            <div class="glass-panel" style="position: relative; z-index: 2; max-width: 600px; padding: 2.5rem; margin: 0 1rem; color: #1a1a1a; border-radius: 12px; background: rgba(255, 255, 255, 0.25); border: 1px solid rgba(255, 255, 255, 0.4); backdrop-filter: blur(12px) saturate(140%); -webkit-backdrop-filter: blur(12px) saturate(140%); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);">
-                <h2 style="font-size: 1.8rem; margin: 0 0 1rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid #1a1a1a; display: inline-block;">Frosted Glass</h2>
-                <p style="margin: 0;">
+        <section class="glass-section-wrapper">
+            <img src="image_iQX0Cm.png" alt="Soft out-of-focus background bokeh trees" class="glass-bg-img">
+            <div class="glass-panel">
+                <h2>Frosted Glass</h2>
+                <p>
                     This panel uses backdrop-filter to blur and saturate the
                     image behind it. The text stays sharp while the background
                     softens into a frosted surface.
@@ -108,26 +86,17 @@
             </div>
         </section>
 
-        <!-- ICON ROW: drop-shadow on transparent images -->
-        <section class="icon-section">
-            <h2 style="font-size: 1.8rem; margin: 0 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid #007bff; display: inline-block;">Drop Shadow on Transparent Images</h2>
-            <p style="margin: 0 0 2rem 0; color: #6c757d;">
+        <section>
+            <h2>Drop Shadow on Transparent Images</h2>
+            <p>
                 These icons use drop-shadow() instead of box-shadow so the shadow
                 follows the actual shape of each image rather than its bounding box.
             </p>
-            <div class="icon-row" style="display: flex; gap: 3rem; justify-content: center; align-items: center; padding: 2rem; background-color: #fff; border-radius: 8px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);">
-                <img class="icon-item" src="https://cdn.jsdelivr.net/npm/@tabler/icons@2.47.0/icons/heart.svg" alt="Heart icon" style="width: 64px; height: 64px; filter: drop-shadow(0px 4px 6px rgba(0, 123, 255, 0.3));">
-                <img class="icon-item" src="https://cdn.jsdelivr.net/npm/@tabler/icons@2.47.0/icons/star.svg" alt="Star icon" style="width: 64px; height: 64px; filter: drop-shadow(0px 4px 6px rgba(0, 123, 255, 0.3));">
-                <img class="icon-item" src="https://cdn.jsdelivr.net/npm/@tabler/icons@2.47.0/icons/bookmark.svg" alt="Bookmark icon" style="width: 64px; height: 64px; filter: drop-shadow(0px 4px 6px rgba(0, 123, 255, 0.3));">
-                <img class="icon-item" src="https://cdn.jsdelivr.net/npm/@tabler/icons@2.47.0/icons/message-circle.svg" alt="Message icon" style="width: 64px; height: 64px; filter: drop-shadow(0px 4px 6px rgba(0, 123, 255, 0.3));">
+            <div class="icon-row">
+                <img src="image_cSIuVc.png" alt="Heart icon" class="themed-icon">
             </div>
         </section>
 
     </main>
-
-    <footer class="site-footer" style="text-align: center; padding: 2rem; background-color: #212529; color: #adb5bd; margin-top: 4rem;">
-        <p style="margin: 0;">&copy; 2026 My portfolio</p>
-    </footer>
-
 </body>
 </html>
