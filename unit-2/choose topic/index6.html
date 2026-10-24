@@ -3,41 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magazine Text Flow Layout</title>
-    <link rel="stylesheet" href="style.css">
+    <title>CSS Shape-Outside Magazine Flow</title>
+    <link rel="stylesheet" href="main6.css">
 </head>
 <body>
 
-    <main class="magazine-layout">
-        <header class="editorial-header">
-            <span>Layout Specification</span>
-            <h1>Editorial Geometry</h1>
-        </header>
+    <h1>Magazine Layout Flow</h1>
 
-        <!-- 1. CIRCLE WRAP DEMONSTRATION -->
-        <section class="editorial-section">
-            <div class="shape-circle"></div>
-            <p>
-                <strong>Bending around spheres.</strong> Modern web typography is no longer locked into rigid grids. By applying geometric curves to floated objects, paragraph layout streams bend inward natively. The text dynamically recalculates its character break patterns along the computed perimeter, allowing copy to wrap fluidly around round frames without requiring arbitrary spacer blocks or absolute positioning tricks.
-            </p>
-        </section>
+    <!-- Example 1: Circle -->
+    <h2>1. Curving Around a Circle</h2>
+    <div class="circle-element"></div>
+    <p>
+        This block of copy is curving directly around a red circle element. By setting the shape-outside property to a circle value, the browser's typographic renderer stops aligning words to a straight, vertical line. Instead, it measures the layout boundaries using the circle's exact geometric math radius, shifting the words inward dynamically to hug the edge.
+    </p>
 
-        <!-- 2. POLYGON WRAP DEMONSTRATION -->
-        <section class="editorial-section">
-            <div class="shape-polygon"></div>
-            <p>
-                <strong>Sliding down diagonals.</strong> Polygon point coordinates let you build irregular geometric angles, like diagonals and multi-point star patterns. As the content encounters the sharp slope of the polygon vector boundary, individual character clusters stack cleanly along the hypotenuse. This mirrors high-end editorial layouts found in print print advertisements and physical fashion magazines.
-            </p>
-        </section>
+    <!-- Example 2: Polygon -->
+    <h2>2. Sliding Down a Polygon (Triangle)</h2>
+    <div class="polygon-element"></div>
+    <p>
+        This block of text demonstrates wrapping along a hard diagonal line. Using a polygon coordinate matrix layout map, we carved a triangular shape out of the space. Notice how the text drops step-by-step along the hypotenuse of the right-angle wedge shape, mimicking structural modern editorial design formats found in high-end fashion print layouts.
+    </p>
 
-        <!-- 3. IMAGE ALPHA WRAP DEMONSTRATION -->
-        <section class="editorial-section">
-            <div class="shape-image"></div>
-            <p>
-                <strong>Flowing past silhouettes.</strong> Beyond predictable circles and straight vectors, browsers can parse alpha transparency channels directly out of an image file. When a PNG with a clear alpha background is evaluated, the text layout tracking maps straight onto the edge of the opaque pixels, letting copy wrap tightly around organic silhouettes like stars, physical products, or detailed portraits.
-            </p>
-        </section>
-    </main>
+    <!-- Example 3: Image -->
+    <h2>3. Mapping Around Image Alpha Transparency</h2>
+    <div class="image-element"></div>
+    <p>
+        Finally, you can pass actual transparent images directly into the browser layout engine. By pointing the shape-outside variable toward a PNG file path containing clear alpha channels, the system evaluates where solid pixels begin. This allows regular paragraph blocks to wrap tightly against irregular silhouettes like stars, products, or human shapes.
+    </p>
 
 </body>
 </html>
