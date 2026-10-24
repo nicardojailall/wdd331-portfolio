@@ -62,3 +62,12 @@
     /* ========================================== */
     --outline-width: 2px;
 }
+.card {
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+}
