@@ -1,0 +1,39 @@
+.site-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 8%;
+    background: linear-gradient(135deg, #172554, #2563eb);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 10;
+}
+
+.site-nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.site-nav > a {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.site-nav ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.site-nav ul a {
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.site-nav ul a:hover,
+.site-nav ul a[aria-current="page"] {
+    background-color: rgba(255, 255, 255, 0.18);
+    color: #fde68a;
+}
