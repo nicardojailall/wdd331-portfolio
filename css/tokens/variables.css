@@ -76,189 +76,30 @@
         0 2px 4px rgba(0, 0, 0, 0.06), 
         0 8px 16px rgba(0, 0, 0, 0.08), 
         0 16px 32px rgba(0, 0, 0, 0.1);
-}
-.hero {
-    position: relative;
-    height: 400px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    text-align: center;
-}
 
-.hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -2;
-}
-
-/* Effect 1: Light Mode Gradient Wash & Vignette Overlay Combo */
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: radial-gradient(circle, rgba(0, 0, 0, 0.3) 0%, rgba(0, 40, 100, 0.65) 100%);
-    transition: background 0.3s ease;
-}
-
-.hero-content {
-    padding: 0 1rem;
-}
-
-/* Effect 2: Light Mode High-Contrast Contrast Shadows */
-.hero-title {
-    font-size: 3rem;
-    margin: 0 0 1rem 0;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.85), 
-                 0 0 20px rgba(0, 0, 0, 0.4);
-}
-
-.hero-subtitle {
-    font-size: 1.25rem;
-    margin: 0;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.85);
-}
-
-/* ==========================================================================
-   3. Style the Elevation Cards
-   ========================================================================== */
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
-    padding: var(--spacing-lg) 0;
-}
-
-.elevation-card {
-    /* Responsive theme switching using standard system color tokens */
-    background-color: var(--color-bg-card, #ffffff);
-    color: var(--color-text-main, #222222);
-    border-radius: var(--radius-md);
-    overflow: hidden;
+    /* ========================================== */
+    /* 8. Hero Enhancements                       */
+    /* ========================================== */
+    /* Combined radial wash and directional linear fade for optimal image contrast */
+    --hero-overlay-gradient: 
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.25), transparent 65%),
+        radial-gradient(circle, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.65) 100%);
     
-    /* Smooth lift transitions */
-    box-shadow: var(--shadow-card);
-    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    /* Layered shadows to maintain typography legibility on dynamic backgrounds */
+    --hero-text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.4),
+        0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.elevation-card:hover,
-.elevation-card:focus-within {
-    /* Card 'lifts' toward the user physically and visually */
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-raised);
-}
-
-.card-image-wrapper {
-    overflow: hidden;
-    position: relative;
-    aspect-ratio: 16 / 9;
-}
-
-.card-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    
-    /* Dynamic filter treatment */
-    filter: grayscale(80%) brightness(90%);
-    transition: filter var(--transition-base), transform var(--transition-base);
-}
-
-.elevation-card:hover .card-image,
-.elevation-card:focus-within .card-image {
-    /* Reveals vivid dynamic range on interaction */
-    filter: grayscale(0%) brightness(100%);
-    transform: scale(1.03);
-}
-
-.card-body {
-    padding: var(--spacing-md);
-}
-
-
-/* ==========================================================================
-   4. Build the Frosted Glass Panel
-   ========================================================================== */
-.glass-section-wrapper {
-    position: relative;
-    padding: var(--spacing-xl) 0;
-    /* Context needs to showcase the blurred background image shifting behind */
-    background-image: url('path-to-your-background.jpg');
-    background-size: cover;
-    background-position: center;
-    border-radius: var(--radius-lg);
-}
-
-.glass-panel {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: var(--spacing-xl);
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    
-    /* Uses light-dark() to set high contrast translucency matching system color schemes */
-    background-color: light-dark(rgba(255, 255, 255, 0.65), rgba(20, 20, 25, 0.75));
-    
-    /* Backdrop compound filters */
-    backdrop-filter: blur(12px) saturate(160%);
-    -webkit-backdrop-filter: blur(12px) saturate(160%);
-}
-
-/* Prefers-reduced-motion fallback execution */
-@media (prefers-reduced-motion: reduce) {
-    .glass-panel {
-        /* Strips calculation-heavy runtime blurs for solid structural fallback */
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-        background-color: light-dark(#f8f9fa, #1a1a20);
-        border: 1px solid light-dark(#dee2e6, #2d2d35);
+/* Dark mode overrides for adaptive environmental luminance */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --hero-overlay-gradient: 
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.45), transparent 55%),
+            radial-gradient(circle, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.85) 100%);
+            
+        --hero-text-shadow: 
+            0 2px 4px rgba(0, 0, 0, 0.6),
+            0 6px 16px rgba(0, 0, 0, 0.5);
     }
-    
-    .elevation-card:hover,
-    .elevation-card:focus-within {
-        transform: none; /* Disables spatial animation */
-    }
-}
-
-
-/* ==========================================================================
-   5. Style the Icon Row
-   ========================================================================== */
-.icon-row {
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-xl);
-    padding: var(--spacing-lg) 0;
-}
-
-.themed-icon {
-    width: var(--icon-size-md);
-    height: var(--icon-size-md);
-    
-    /* Inherits programmatic theme mapping via text streams */
-    color: currentColor; 
-    
-    /* Thick, rich outline effect engineered via multiple stacked drop-shadow calls */
-    filter: 
-        drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.15)) 
-        drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.1));
-        
-    transition: filter var(--transition-base), transform var(--transition-base);
-}
-
-.themed-icon:hover {
-    transform: scale(1.1);
-    /* Intensifies depth profile seamlessly during focus frames */
-    filter: 
-        drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.2)) 
-        drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.15));
 }
