@@ -32,17 +32,22 @@
             }
         }
 
+        /* FIX: Explicitly enforce full opacity alongside the color/weight changes */
         &[aria-current="page"] {
+            opacity: 1;
             font-weight: bold;
             color: var(--color-primary, #0066cc);
         }
 
-        /* Requirement: focus-visible ring for keyboard users */
-        &:focus-visible {
+        /* Accessibility Fallback: Standard focus indicator for older engines */
+        &:focus {
             outline: var(--outline-width, 2px) solid var(--color-accent, #ff9900);
             outline-offset: 2px;
         }
+
+        /* Requirement: focus-visible ring for modern keyboard users (removes mouse-click ring) */
+        &:not(:focus-visible):focus {
+            outline: none;
+        }
     }
 }
-
-
