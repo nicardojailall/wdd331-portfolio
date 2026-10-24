@@ -1,5 +1,4 @@
 
-@layer components {
   
 
 .site-nav {
@@ -38,5 +37,4 @@
     opacity: 1;
     font-weight: bold;
     color: var(--color-primary, #0066cc);
-}
 }
