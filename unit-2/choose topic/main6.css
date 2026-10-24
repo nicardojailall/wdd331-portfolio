@@ -1,125 +1,27 @@
-/* --- Core Layout & Typography Resets --- */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background-color: #0f172a;
-    color: #e2e8f0;
-    line-height: 1.7;
-    padding: 2rem;
-    display: flex;
-    justify-content: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 600px;
+    padding: 40px;
+    background-color: #fafafa;
 }
 
-.demo-wrapper {
-    width: 100%;
-    max-width: 750px;
-    background-color: #1e293b;
-    border-radius: 16px;
-    padding: 2.5rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.demo-header {
-    text-align: center;
-    border-bottom: 1px solid #334155;
-    padding-bottom: 2rem;
-    margin-bottom: 2rem;
-}
-
-h1 {
-    font-size: 1.8rem;
-    color: #f8fafc;
-    margin-bottom: 0.5rem;
-}
-
-code {
-    background-color: #0f172a;
-    color: #38bdf8;
-    padding: 0.2rem 0.4rem;
-    border-radius: 4px;
-    font-size: 0.95em;
-}
-
-p {
-    color: #94a3b8;
-    margin-bottom: 1.5rem;
-}
-
-/* --- Interactive Control Switches --- */
-.toggle-container {
-    display: inline-flex;
-    background-color: #0f172a;
-    padding: 0.4rem;
-    border-radius: 8px;
-    margin-top: 1rem;
-    gap: 0.5rem;
-}
-
-.toggle-container input[type="radio"] {
-    display: none; /* Hide standard radio dots */
-}
-
-.btn {
-    padding: 0.6rem 1.2rem;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #64748b;
-    transition: all 0.2s ease;
-}
-
-/* Accent highlight when toggled */
-#mode-box:checked ~ label[for="mode-box"],
-#mode-shape:checked ~ label[for="mode-shape"] {
-    background-color: #38bdf8;
-    color: #0f172a;
-}
-
-/* --- The Sandbox & Shape-Outside Logic --- */
-.sandbox {
-    text-align: justify;
-    font-size: 1.05rem;
-    color: #cbd5e1;
-}
-
-.floating-target {
+.circle-shape {
+    /* Required step 1: Must be floated left or right */
     float: left;
-    width: 200px;
-    height: 200px;
-    margin: 0.5rem 1.5rem 0.5rem 0;
-    background-color: rgba(56, 189, 248, 0.1);
-    border: 2px dashed #475569;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    
+    /* Required step 2: Must have explicit width and height */
+    width: 150px;
+    height: 150px;
+    
+    /* Required step 3: The magic property that bends the text */
+    shape-outside: circle(50%);
+    
+    /* Adds a comfortable 15px visual gap between the circle and text */
+    shape-margin: 15px;
 
-/* Visual element reflecting the boundary shape */
-.sphere-graphic {
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 30% 30%, #38bdf8, #0369a1);
-    box-shadow: 0 10px 25px rgba(3, 105, 161, 0.4);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* --- State Changes triggered via CSS Radios --- */
-
-/* State 1: When "Shape-Outside" is checked, apply the circle wrapping math */
-#mode-shape:checked ~ .sandbox .floating-target {
-    shape-outside: circle(50%); /* Magic property: tells inline text to wrap around a circle */
-    shape-margin: 1rem;         /* Adds a padding track between the circle edge and text */
-    border-color: #38bdf8;       /* Highlight active element grid boundary */
-    border-radius: 50%;
-}
-
-#mode-shape:checked ~ .sandbox .sphere-graphic {
+    /* Aesthetic styling to turn the box blue and round */
+    background-color: #0076ff;
     border-radius: 50%;
 }

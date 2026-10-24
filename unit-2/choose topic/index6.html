@@ -2,47 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Shape-Outside Interactive Demo</title>
-    <link rel="stylesheet" href="main6.css">
+    <title>Easy Shape Outside Demo</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <main class="demo-wrapper">
-        <header class="demo-header">
-            <h1>CSS <code>shape-outside</code> Visualizer</h1>
-            <p>Toggle the option below to see how text breaks free from the classic invisible rectangular box and curves around geometry.</p>
-            
-            <!-- Controls to toggle the layout mode -->
-            <div class="toggle-container">
-                <input type="radio" id="mode-box" name="layout-mode" checked>
-                <label for="mode-box" class="btn">Standard Flat Box</label>
+    <!-- The floated shape element -->
+    <div class="circle-shape"></div>
 
-                <input type="radio" id="mode-shape" name="layout-mode">
-                <label for="mode-shape" class="btn">Shape-Outside (Circle)</label>
-            </div>
-        </header>
-
-        <!-- The Interactive Sandbox Container -->
-        <section class="sandbox">
-            
-            <!-- The floating element that text will wrap around -->
-            <div class="floating-target">
-                <div class="sphere-graphic"></div>
-            </div>
-
-            <!-- The Text Content -->
-            <p class="demo-text">
-                Typography on the web has traditionally been forced into rigid rows and boxes. Even when you make an element circular using CSS border-radius, the browser engine still treats the underlying layout perimeter as a strict rectangle. Notice how the letters of this sentence behave when you interact with the controls above. 
-            </p>
-            <p class="demo-text">
-                By enabling the <code>shape-outside</code> property, you tell the browser's rendering engine to rewrite its layout boundaries completely. The inline layout context calculation switches from checking a straight vertical line to evaluating a geometric curve. As a result, the flow of the text bends inward, matching the physical contours of the floating element seamlessly.
-            </p>
-            <p class="demo-text">
-                This behavior mimics luxury print magazine editorial layouts. It allows for highly dynamic layouts without having to convert text blocks into static image assets. It keeps text fully accessible, highlightable, translatable, and indexable by search engines while unlocking unique editorial layouts.
-            </p>
-        </section>
-    </main>
+    <!-- The text wrapping around it -->
+    <p>
+        This text is actively wrapping around a geometric curve. Normally, even if an element looks like a circle, the browser treats it as a rigid rectangle. By applying the <code>shape-outside</code> property in our stylesheet, we override that behavior. The browser reads the exact curvature of the circle, allowing these words to glide right up against its rounded edge seamlessly. It removes the empty vertical gaps usually found next to round floating elements.
+    </p>
 
 </body>
 </html>
