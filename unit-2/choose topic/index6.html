@@ -2,17 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Easy Shape Outside Demo</title>
-    <link rel="stylesheet" href="main6.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Shape-Outside Magazine Flow</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- The floated shape element -->
-    <div class="circle-shape"></div>
+    <h1>Magazine Layout Flow</h1>
 
-    <!-- The text wrapping around it -->
+    <!-- Example 1: Circle -->
+    <h2>1. Curving Around a Circle</h2>
+    <div class="circle-element"></div>
     <p>
-        This text is actively wrapping around a geometric curve. Normally, even if an element looks like a circle, the browser treats it as a rigid rectangle. By applying the <code>shape-outside</code> property in our stylesheet, we override that behavior. The browser reads the exact curvature of the circle, allowing these words to glide right up against its rounded edge seamlessly. It removes the empty vertical gaps usually found next to round floating elements.
+        This block of copy is curving directly around a red circle element. By setting the shape-outside property to a circle value, the browser's typographic renderer stops aligning words to a straight, vertical line. Instead, it measures the layout boundaries using the circle's exact geometric math radius, shifting the words inward dynamically to hug the edge.
+    </p>
+
+    <!-- Example 2: Polygon -->
+    <h2>2. Sliding Down a Polygon (Triangle)</h2>
+    <div class="polygon-element"></div>
+    <p>
+        This block of text demonstrates wrapping along a hard diagonal line. Using a polygon coordinate matrix layout map, we carved a triangular shape out of the space. Notice how the text drops step-by-step along the hypotenuse of the right-angle wedge shape, mimicking structural modern editorial design formats found in high-end fashion print layouts.
+    </p>
+
+    <!-- Example 3: Image -->
+    <h2>3. Mapping Around Image Alpha Transparency</h2>
+    <div class="image-element"></div>
+    <p>
+        Finally, you can pass actual transparent images directly into the browser layout engine. By pointing the shape-outside variable toward a PNG file path containing clear alpha channels, the system evaluates where solid pixels begin. This allows regular paragraph blocks to wrap tightly against irregular silhouettes like stars, products, or human shapes.
     </p>
 
 </body>
