@@ -76,30 +76,4 @@
         0 2px 4px rgba(0, 0, 0, 0.06), 
         0 8px 16px rgba(0, 0, 0, 0.08), 
         0 16px 32px rgba(0, 0, 0, 0.1);
-
-    /* ========================================== */
-    /* 8. Hero Enhancements                       */
-    /* ========================================== */
-    /* Combined radial wash and directional linear fade for optimal image contrast */
-    --hero-overlay-gradient: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.25), transparent 65%),
-        radial-gradient(circle, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.65) 100%);
-    
-    /* Layered shadows to maintain typography legibility on dynamic backgrounds */
-    --hero-text-shadow: 
-        0 2px 4px rgba(0, 0, 0, 0.4),
-        0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Dark mode overrides for adaptive environmental luminance */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --hero-overlay-gradient: 
-            linear-gradient(to bottom, rgba(0, 0, 0, 0.45), transparent 55%),
-            radial-gradient(circle, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.85) 100%);
-            
-        --hero-text-shadow: 
-            0 2px 4px rgba(0, 0, 0, 0.6),
-            0 6px 16px rgba(0, 0, 0, 0.5);
-    }
 }
