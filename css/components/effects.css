@@ -40,6 +40,53 @@ h2 {
 p {
     margin-bottom: 12px;
 }
+
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.site-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 8%;
+    background: linear-gradient(135deg, #172554, #2563eb);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 10;
+}
+
+.site-nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.site-nav > a {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.site-nav ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.site-nav ul a {
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.site-nav ul a:hover,
+.site-nav ul a[aria-current="page"] {
+    background-color: rgba(255, 255, 255, 0.18);
+    color: #fde68a;
+}
+
+
 /* ========================================
    HERO SECTION
 ======================================== */
@@ -210,8 +257,8 @@ main {
     inset: 0;
     background: linear-gradient(
         135deg,
-        rgba(30, 64, 175, 0.4),
-        rgba(76, 29, 149, 0.45)
+        rgba(30, 64, 175, 0.35),
+        rgba(76, 29, 149, 0.4)
     );
     z-index: -1;
 }
@@ -219,33 +266,19 @@ main {
 .glass-panel {
     width: min(650px, 100%);
     padding: 40px;
-    border: 1px solid light-dark(
-        rgba(255, 255, 255, 0.65),
-        rgba(255, 255, 255, 0.25)
-    );
+    border: 1px solid rgba(255, 255, 255, 0.45);
     border-radius: 18px;
-
-    /* Theme-aware translucent background */
-    background: light-dark(
-        rgba(255, 255, 255, 0.48),
-        rgba(15, 23, 42, 0.52)
-    );
-
-    /* Frosted glass effect */
-    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(14px) saturate(160%);
-
-    box-shadow:
-        0 12px 35px rgba(15, 23, 42, 0.2),
-        0 0 20px rgba(255, 255, 255, 0.08);
-
-    color: light-dark(#172554, #ffffff);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.2);
+    color: white;
     text-align: center;
 }
 
 .glass-panel h2 {
-    color: inherit;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
     margin-bottom: 18px;
 }
 
@@ -266,7 +299,7 @@ main {
 .icon-section > p {
     max-width: 720px;
     margin: 0 auto 30px;
-    color: light-dark(#475569, #cbd5e1);
+    color: #475569;
 }
 
 .icon-row {
@@ -281,16 +314,7 @@ main {
 .icon-item {
     width: 65px;
     height: 65px;
-
-    /* Theme-aware icon color */
-    color: light-dark(#2563eb, #93c5fd);
-
-    /* Multiple shadows follow the icon shape */
-    filter:
-        drop-shadow(0 1px 1px currentColor)
-        drop-shadow(0 3px 3px currentColor)
-        drop-shadow(0 6px 5px rgba(15, 23, 42, 0.2));
-
+    filter: drop-shadow(3px 5px 4px rgba(37, 99, 235, 0.35));
     transition:
         transform 0.3s ease,
         filter 0.3s ease;
@@ -298,10 +322,7 @@ main {
 
 .icon-item:hover {
     transform: translateY(-8px) scale(1.12);
-    filter:
-        drop-shadow(0 1px 2px currentColor)
-        drop-shadow(0 4px 5px currentColor)
-        drop-shadow(0 8px 8px rgba(15, 23, 42, 0.25));
+    filter: drop-shadow(5px 8px 6px rgba(124, 58, 237, 0.5));
 }
 
 
@@ -348,7 +369,6 @@ a:focus-visible {
     outline-offset: 4px;
 }
 
-/* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -358,24 +378,11 @@ a:focus-visible {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
-
-    /* Replace glass blur with solid backgrounds */
-    .glass-panel {
-        -webkit-backdrop-filter: none;
-        backdrop-filter: none;
-        background: light-dark(#f8fafc, #172554);
-        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.18);
-    }
-
-    /* Disable icon hover movement */
-    .icon-item:hover {
-        transform: none;
-    }
 }
 
 
 /* ========================================
-   RESPONSIVE DESIGN: TABLETS
+   RESPONSIVE DESIGN
 ======================================== */
 
 @media (max-width: 768px) {
@@ -406,11 +413,6 @@ a:focus-visible {
         padding: 30px 22px;
     }
 }
-
-
-/* ========================================
-   RESPONSIVE DESIGN: MOBILE
-======================================== */
 
 @media (max-width: 520px) {
     .site-nav {
