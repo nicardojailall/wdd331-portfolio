@@ -1,66 +1,98 @@
-/* --- General Base Styling --- */
+/* --- Document Foundations & Typography --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: Georgia, serif;
+    font-family: "Georgia", serif;
     line-height: 1.8;
-    max-width: 650px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    background-color: #fcfbfa;
-    color: #222;
+    background-color: #fbf9f6;
+    color: #1a1a1a;
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.magazine-layout {
+    width: 100%;
+    max-width: 680px;
+}
+
+.editorial-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.editorial-header span {
+    font-family: system-ui, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: #e63946;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 400;
+    margin-top: 0.5rem;
+}
+
+.editorial-section {
+    margin-bottom: 3.5rem;
     text-align: justify;
 }
 
-h2 {
-    font-family: sans-serif;
-    clear: both;
-    margin-top: 40px;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 5px;
-}
-
-/* --- 1. CIRCLE SHAPE --- */
-.circle-element {
+/* --- 1. Circle Layout --- */
+.shape-circle {
+    /* Layout requirements: floated with distinct sizing */
     float: left;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: #e63946;
-    margin-right: 20px;
+    width: 140px;
+    height: 140px;
+    margin: 0.5rem 1.5rem 0.5rem 0;
     
-    /* The Core CSS Properties */
+    /* Core shape engine properties */
     shape-outside: circle(50%);
     shape-margin: 15px;
+
+    /* Aesthetic styling */
+    background: #e63946;
+    border-radius: 50%;
 }
 
-/* --- 2. POLYGON SHAPE (Triangle) --- */
-.polygon-element {
+/* --- 2. Polygon Layout (Triangle) --- */
+.shape-polygon {
+    /* Layout requirements: floated with distinct sizing */
     float: right;
-    width: 160px;
-    height: 160px;
-    background: #1d3557;
-    margin-left: 20px;
-    
-    /* Clip the visual box into a triangle matching the text flow path */
-    clip-path: polygon(0% 100%, 100% 0%, 100% 100%);
-    
-    /* The Core CSS Properties */
-    shape-outside: polygon(0% 100%, 100% 0%, 100% 100%);
-    shape-margin: 15px;
-}
-
-/* --- 3. IMAGE TRANSPARENCY SHAPE --- */
-.image-element {
-    float: left;
     width: 150px;
     height: 150px;
-    margin-right: 20px;
+    margin: 0.5rem 0 0.5rem 1.5rem;
     
-    /* Use a transparent PNG asset or graphic overlay */
+    /* Core shape engine properties */
+    shape-outside: polygon(100% 0%, 0% 100%, 100% 100%);
+    shape-margin: 15px;
+
+    /* Aesthetic styling: clip-path matches visual art to layout boundaries */
+    clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+    background: #1d3557;
+}
+
+/* --- 3. Alpha Image Silhouette Layout --- */
+.shape-image {
+    /* Layout requirements: floated with distinct sizing */
+    float: left;
+    width: 140px;
+    height: 140px;
+    margin: 0.5rem 1.5rem 0.5rem 0;
+
+    /* Display style */
     background: url('https://wikimedia.org') no-repeat center;
     background-size: contain;
-
-    /* The Core CSS Properties */
+    
+    /* Core shape engine properties */
     shape-outside: url('https://wikimedia.org');
-    shape-image-threshold: 0.1; /* Tells browser to wrap text at 10% opacity threshold */
+    shape-image-threshold: 0.1; /* Reads pixels above 10% opacity as the shape edge */
     shape-margin: 15px;
 }
