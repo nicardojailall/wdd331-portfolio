@@ -32,22 +32,22 @@
             }
         }
 
-        /* FIX: Explicitly enforce full opacity alongside the color/weight changes */
         &[aria-current="page"] {
-            opacity: 1;
             font-weight: bold;
             color: var(--color-primary, #0066cc);
         }
 
-        /* Accessibility Fallback: Standard focus indicator for older engines */
-        &:focus {
+        /* Requirement: focus-visible ring for keyboard users */
+        &:focus-visible {
             outline: var(--outline-width, 2px) solid var(--color-accent, #ff9900);
             outline-offset: 2px;
         }
-
-        /* Requirement: focus-visible ring for modern keyboard users (removes mouse-click ring) */
-        &:not(:focus-visible):focus {
-            outline: none;
-        }
     }
+}
+
+@layer components {
+  .site-nav {
+    padding: var(--spacing-layout-sm, var(--spacing-md)) 0;
+    margin-bottom: var(--spacing-layout-lg, var(--spacing-xl));
+  }
 }
