@@ -45,40 +45,6 @@
     font-family: var(--font-sans);
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 1.25rem;
-    margin-bottom: 4rem;
-    border-bottom: 1px solid var(--color-border);
-}
-
-/* Navigation Layout Strategy */
-header nav {
-    display: flex;
-    flex-direction: row;
-    gap: 1.75rem;
-}
-
-header a {
-    color: var(--color-primary);
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 1.5px;
-}
-
-header nav a {
-    font-weight: 500;
-    transition: color 0.2s ease;
-}
-
-header nav a:hover {
-    color: var(--color-accent);
-}
-
 /* ==========================================================================
    Visual Styling, Design Tokens, & Elements
    ========================================================================== */
