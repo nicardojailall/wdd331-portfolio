@@ -1,6 +1,4 @@
-/* ==========================================================================
-   1. Base Reset & Layout Constraints
-   ========================================================================== */
+/* Base Layout Reset */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,134 +12,66 @@ body {
   padding: 2rem;
 }
 
+/* Demo Control Bar */
 .demo-controls {
   display: flex;
   gap: 1rem;
-  margin-block-end: 2.5rem; /* Logical margin-bottom */
+  margin-block-end: 2rem; /* Logical margin-bottom */
 }
 
 button {
-  padding: 0.6rem 1.2rem;
+  padding: 0.5rem 1rem;
   font-weight: 600;
   background-color: #007aff;
   color: #ffffff;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
 button:hover {
   background-color: #0056b3;
 }
 
-/* Flex layout wrapping our two component cards */
-.gallery-layout {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  max-inline-size: 1100px; /* Logical max-width */
+/* Master Layout Container */
+.container {
+  max-inline-size: 600px; /* Logical max-width */
 }
 
-/* ==========================================================================
-   2. Shared Card Infrastructure
-   ========================================================================== */
+/* The Logical Property Card Component */
 .card {
   position: relative;
   background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  
+  /* Logical Spacing & Borders */
+  padding-block: 2.5rem;               /* Padding top & bottom */
+  padding-inline: 1.5rem;              /* Padding left & right */
+  border-inline-start: 6px solid #34c759; /* Border left in LTR / Border right in RTL */
 }
 
-.card-content {
-  padding-block: 1.5rem;   /* Top & Bottom */
-  padding-inline: 1.5rem;  /* Left & Right */
+/* Logical Absolute Positioning */
+.badge {
+  position: absolute;
+  inset-block-start: 12px; /* Logical top */
+  inset-inline-end: 12px;  /* Logical right in LTR / Logical left in RTL */
+  
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
 }
 
 .card-title {
-  font-size: 1.4rem;
-  margin-block-end: 0.5rem;
+  font-size: 1.5rem;
+  margin-block-end: 0.75rem; /* Logical margin-bottom */
 }
 
 .card-text {
   color: #555559;
-  line-height: 1.5;
-  font-size: 0.95rem;
-}
-
-/* ==========================================================================
-   3. Intrinsic Sizing & Aspect-Ratio / Object-Fit Focus
-   ========================================================================== */
-
-/* Profile Card Profile setup */
-.profile-card {
-  flex: 1 1 320px;
-  /* Shrinks the card structure exactly down to its absolute narrowest single-word requirement */
-  min-inline-size: min-content; 
-}
-
-.profile-card .image-wrapper {
-  padding-block-start: 1.5rem;
-  padding-inline: 1.5rem;
-}
-
-/* Target element for intrinsic testing */
-.badge-title {
-  background-color: #f2f2f7;
-  padding: 0.25rem 0.7rem;
-  border-radius: 6px;
-  font-size: 1rem;
-  margin-block-end: 0.75rem;
-  /* Grows container width precisely to its text size without standard parent stretching */
-  inline-size: max-content; 
-}
-
-/* Core Media Rule Framework */
-.responsive-media {
-  display: block;
-  inline-size: 100%;
-  block-size: auto;
-  aspect-ratio: 1 / 1;      /* Forces perfect square shape */
-  object-fit: contain;      /* Letterboxes to guarantee image visibility without stretching */
-  border-radius: 10px;
-  background-color: #eaeaea;
-}
-
-/* ==========================================================================
-   4. Logical Properties Context Focus
-   ========================================================================== */
-.visual-card {
-  flex: 2 1 500px;
-  /* Dynamic border orientation: Left border in LTR / Right border in RTL */
-  border-inline-start: 6px solid #34c759; 
-}
-
-.visual-card .hero-image-wrapper {
-  inline-size: 100%;
-}
-
-.visual-card .cover-fit {
-  aspect-ratio: 16 / 7;     /* Cinematic aspect container width */
-  object-fit: cover;        /* Centered crop configuration */
-  border-radius: 0;
-}
-
-/* Absolute Positioning matching logical contexts */
-.badge {
-  position: absolute;
-  inset-block-start: 16px;  /* Logical Top */
-  inset-inline-end: 16px;   /* Logical Right in LTR / Logical Left in RTL */
-  z-index: 10;
-  
-  background-color: #34c759;
-  color: #ffffff;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.35rem 0.7rem;
-  border-radius: 6px;
+  line-height: 1.6;
 }
