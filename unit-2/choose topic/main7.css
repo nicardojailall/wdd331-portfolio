@@ -1,0 +1,77 @@
+/* Base Layout Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f4f4f6;
+  color: #1c1c1e;
+  padding: 2rem;
+}
+
+/* Demo Control Bar */
+.demo-controls {
+  display: flex;
+  gap: 1rem;
+  margin-block-end: 2rem; /* Logical margin-bottom */
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  background-color: #007aff;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Master Layout Container */
+.container {
+  max-inline-size: 600px; /* Logical max-width */
+}
+
+/* The Logical Property Card Component */
+.card {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  
+  /* Logical Spacing & Borders */
+  padding-block: 2.5rem;               /* Padding top & bottom */
+  padding-inline: 1.5rem;              /* Padding left & right */
+  border-inline-start: 6px solid #34c759; /* Border left in LTR / Border right in RTL */
+}
+
+/* Logical Absolute Positioning */
+.badge {
+  position: absolute;
+  inset-block-start: 12px; /* Logical top */
+  inset-inline-end: 12px;  /* Logical right in LTR / Logical left in RTL */
+  
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin-block-end: 0.75rem; /* Logical margin-bottom */
+}
+
+.card-text {
+  color: #555559;
+  line-height: 1.6;
+}

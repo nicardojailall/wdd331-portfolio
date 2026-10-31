@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logical Properties Demo</title>
+  <link rel="stylesheet" href="main7.css">
+</head>
+<body>
+
+  <header class="demo-controls">
+    <button onclick="document.documentElement.dir = 'ltr'">Set Left-to-Right (LTR)</button>
+    <button onclick="document.documentElement.dir = 'rtl'">Set Right-to-Left (RTL)</button>
+  </header>
+
+  <main class="container">
+    <article class="card">
+      <div class="badge">New Feature</div>
+      <h2 class="card-title">Dynamic Alignment</h2>
+      <p class="card-text">
+        This card uses logical properties instead of physical directions. 
+        Click the buttons above to toggle the layout direction. Notice how the 
+        border, margins, padding, and the absolute-positioned badge cleanly shift 
+        without a single line of directional override code!
+      </p>
+    </article>
+  </main>
+
+</body>
+</html>
