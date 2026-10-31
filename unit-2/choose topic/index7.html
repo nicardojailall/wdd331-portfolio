@@ -3,27 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Logical Properties Demo</title>
+  <title>Modern CSS Layout Demo</title>
   <link rel="stylesheet" href="main7.css">
 </head>
 <body>
 
+  <!-- Controls to swap layout flow instantly -->
   <header class="demo-controls">
     <button onclick="document.documentElement.dir = 'ltr'">Set Left-to-Right (LTR)</button>
     <button onclick="document.documentElement.dir = 'rtl'">Set Right-to-Left (RTL)</button>
   </header>
 
-  <main class="container">
-    <article class="card">
-      <div class="badge">New Feature</div>
-      <h2 class="card-title">Dynamic Alignment</h2>
-      <p class="card-text">
-        This card uses logical properties instead of physical directions. 
-        Click the buttons above to toggle the layout direction. Notice how the 
-        border, margins, padding, and the absolute-positioned badge cleanly shift 
-        without a single line of directional override code!
-      </p>
+  <main class="gallery-layout">
+    
+    <!-- Profile Card (Intrinsic Sizing focus) -->
+    <section class="card profile-card">
+      <div class="image-wrapper">
+        <img src="https://picsum.photos" alt="Profile avatar" class="responsive-media">
+      </div>
+      <div class="card-content">
+        <!-- Fits perfectly to its exact word length without breaking -->
+        <h2 class="badge-title">Expert_Dev</h2> 
+        <p class="card-text">
+          This card demonstrates modern layout encapsulation. Notice how the image retains its 1:1 aspect ratio perfectly without skewing.
+        </p>
+      </div>
+    </section>
+
+    <!-- Content Showcase Card (Logical properties & Aspect ratio focus) -->
+    <article class="card visual-card">
+      <div class="badge">New</div>
+      <div class="hero-image-wrapper">
+        <img src="https://picsum.photos" alt="Showcase background" class="responsive-media cover-fit">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Dynamic Architecture</h2>
+        <p class="card-text">
+          Toggle directions to see the image layout, structural borders, absolute badge positioning, and alignment flip effortlessly.
+        </p>
+      </div>
     </article>
+
   </main>
 
 </body>
