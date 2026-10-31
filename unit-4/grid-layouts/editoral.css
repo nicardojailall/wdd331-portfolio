@@ -45,12 +45,46 @@
     font-family: var(--font-sans);
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.25rem;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* Navigation Layout Strategy */
+header nav {
+    display: flex;
+    flex-direction: row;
+    gap: 1.75rem;
+}
+
+header a {
+    color: var(--color-primary);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+}
+
+header nav a {
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+header nav a:hover {
+    color: var(--color-accent);
+}
+
 /* ==========================================================================
    Visual Styling, Design Tokens, & Elements
    ========================================================================== */
 
 :root {
-    --color-bg: #fcfbfa; /* Warm ink-on-paper canvas surface */
+    --color-bg: #f9f8f6;
     --color-text: #111111;
     --color-primary: #1e293b;
     --color-accent: #b45309;
@@ -63,11 +97,6 @@
 body.editorial-page {
     font-family: var(--font-serif);
     background-color: var(--color-bg);
-    
-    /* Subtle editorial dot-grid texture */
-    background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
-    background-size: 24px 24px;
-    
     color: var(--color-text);
     line-height: 1.8;
     padding: 2.5rem 1.5rem;
@@ -176,48 +205,4 @@ footer {
     font-size: 0.8rem;
     color: var(--color-muted);
     text-align: center;
-}
-.editorial-page header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  max-width: 1150px;
-  margin: 0 auto;
-  padding-bottom: 1rem;
-}
-
-.editorial-page header nav {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.editorial-page header nav a {
-  text-decoration: none;
-  color: var(--color-text);
-  padding: 0.5rem 0.75rem;
-  border-radius: 999px;
-}
-.editorial-page header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.editorial-page header nav {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.editorial-page header nav a {
-  text-decoration: none;
-  color: var(--color-text);
-  padding: 0.5rem 0.85rem;
-  border-radius: 999px;
 }
