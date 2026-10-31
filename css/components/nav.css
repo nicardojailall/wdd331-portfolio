@@ -1,8 +1,8 @@
 /* ==========================================================================
-   High-End Navigation Component Layout
+   High-End Navigation Component Layout (.site-nav)
    ========================================================================== */
 
-header nav {
+.site-nav {
     /* Layout Layer */
     display: flex;
     flex-direction: row;
@@ -18,7 +18,7 @@ header nav {
 }
 
 /* Base Navigation Link Anchors */
-header nav a {
+.site-nav a {
     font-family: var(--font-sans, system-ui, sans-serif);
     font-size: 0.8rem;
     font-weight: 600;
@@ -38,7 +38,7 @@ header nav a {
 }
 
 /* Sliding Morphing Background Pill Effect */
-header nav a::before {
+.site-nav a::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -56,24 +56,24 @@ header nav a::before {
 }
 
 /* Hover Interactive Mechanics */
-header nav a:hover {
+.site-nav a:hover {
     color: var(--color-primary, #0f172a);
 }
 
-header nav a:hover::before {
+.site-nav a:hover::before {
     transform: scale(1);
     opacity: 1;
 }
 
 /* Active / Current Page State */
-header nav a.active,
-header nav a[aria-current="page"] {
+.site-nav a.active,
+.site-nav a[aria-current="page"] {
     color: #ffffff;
     background-color: var(--color-accent, #b45309); /* Solid contrast color fill */
 }
 
 /* Prevent hover effect from fighting active track background color */
-header nav a.active::before,
-header nav a[aria-current="page"]::before {
+.site-nav a.active::before,
+.site-nav a[aria-current="page"]::before {
     display: none;
 }
