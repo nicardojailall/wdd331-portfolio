@@ -1,0 +1,202 @@
+/* ==========================================================================
+   Structural Layout with grid-template-areas
+   ========================================================================== */
+
+.editorial-page .layout {
+    max-width: 1150px;
+    margin: 0 auto;
+    display: grid;
+    /* 1. Mobile First Definition */
+    grid-template-areas: 
+        "article-content"
+        "sidebar-content";
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+}
+
+/* 2. Map Elements to Grid Areas */
+.editorial-page main {
+    grid-area: article-content;
+}
+
+.editorial-page aside {
+    grid-area: sidebar-content;
+}
+
+/* 3. Desktop Enhanced Two-Column Layout */
+@media (min-width: 820px) {
+    .editorial-page .layout {
+        /* Sidebar is assigned a fixed width of 280px while main content fills the rest */
+        grid-template-areas: "article-content sidebar-content";
+        grid-template-columns: minmax(0, 1fr) 280px;
+        gap: 5rem;
+    }
+}
+
+/* ==========================================================================
+   Visual Styling & Typography Integration
+   ========================================================================== */
+:root {
+    --color-bg: #f9f8f6;
+    --color-text: #111111;
+    --color-primary: #1e293b;
+    --color-accent: #b45309;
+    --color-border: #e2e8f0;
+    --color-muted: #64748b;
+    --font-serif: "Georgia", serif;
+    --font-sans: system-ui, -apple-system, sans-serif;
+}
+
+body.editorial-page {
+    font-family: var(--font-serif);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.8;
+    padding: 2.5rem 1.5rem;
+}
+
+/* Independent Header & Footer Container Bounds */
+.editorial-page header,
+.editorial-page footer {
+    max-width: 1150px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: var(--font-sans);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.25rem;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+header a {
+    color: var(--color-primary);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+}
+
+header nav a {
+    margin-left: 1.75rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+header nav a:hover {
+    color: var(--color-accent);
+}
+
+/* Internal Article Presentation */
+article h1 {
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.5px;
+}
+
+article .byline {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2.5rem;
+}
+
+article h2 {
+    font-size: 1.65rem;
+    font-weight: 400;
+    margin: 3rem 0 1rem 0;
+    color: var(--color-primary);
+}
+
+article p {
+    margin-bottom: 1.75rem;
+    text-align: justify;
+}
+
+blockquote {
+    margin: 3rem 0;
+    padding-left: 2rem;
+    border-left: 3px solid var(--color-accent);
+    font-style: italic;
+    font-size: 1.35rem;
+    color: #334155;
+}
+
+blockquote p {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+/* Sidebar Component Modules */
+aside section {
+    margin-bottom: 3.5rem;
+}
+
+aside h2 {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.5rem;
+    display: block;
+}
+
+aside ul {
+    list-style: none;
+}
+
+aside ul li {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+aside ul li a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+aside ul li a:hover {
+    color: var(--color-accent);
+}
+
+/* Tag Layout Component */
+aside ul.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+aside ul.tags li {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    border: 1px solid var(--color-border);
+    padding: 0.35rem 0.75rem;
+    border-radius: 2px;
+    background-color: #ffffff;
+    color: #475569;
+    margin-bottom: 0;
+}
+
+/* Bottom Page Anchor */
+footer {
+    margin-top: 6rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    text-align: center;
+}
