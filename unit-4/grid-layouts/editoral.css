@@ -6,7 +6,7 @@
     max-width: 1150px;
     margin: 0 auto;
     display: grid;
-    /* 1. Mobile First Definition */
+    /* Mobile-first: single column stacked area track */
     grid-template-areas: 
         "article-content"
         "sidebar-content";
@@ -14,7 +14,7 @@
     gap: 3.5rem;
 }
 
-/* 2. Map Elements to Grid Areas */
+/* Map semantic container elements directly to the grid map rules */
 .editorial-page main {
     grid-area: article-content;
 }
@@ -23,10 +23,10 @@
     grid-area: sidebar-content;
 }
 
-/* 3. Desktop Enhanced Two-Column Layout */
+/* Desktop Responsive Layout Transition */
 @media (min-width: 820px) {
     .editorial-page .layout {
-        /* Sidebar is assigned a fixed width of 280px while main content fills the rest */
+        /* Sidebar sits on the right with a fixed width track of 280px */
         grid-template-areas: "article-content sidebar-content";
         grid-template-columns: minmax(0, 1fr) 280px;
         gap: 5rem;
@@ -34,8 +34,55 @@
 }
 
 /* ==========================================================================
-   Visual Styling & Typography Integration
+   Global Layout Containers (Header & Footer)
    ========================================================================== */
+
+.editorial-page header,
+.editorial-page footer {
+    max-width: 1150px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: var(--font-sans);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.25rem;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* Navigation Layout Strategy */
+header nav {
+    display: flex;
+    flex-direction: row;
+    gap: 1.75rem;
+}
+
+header a {
+    color: var(--color-primary);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+}
+
+header nav a {
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+header nav a:hover {
+    color: var(--color-accent);
+}
+
+/* ==========================================================================
+   Visual Styling, Design Tokens, & Elements
+   ========================================================================== */
+
 :root {
     --color-bg: #f9f8f6;
     --color-text: #111111;
@@ -55,44 +102,6 @@ body.editorial-page {
     padding: 2.5rem 1.5rem;
 }
 
-/* Independent Header & Footer Container Bounds */
-.editorial-page header,
-.editorial-page footer {
-    max-width: 1150px;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: var(--font-sans);
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 1.25rem;
-    margin-bottom: 4rem;
-    border-bottom: 1px solid var(--color-border);
-}
-
-header a {
-    color: var(--color-primary);
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 1.5px;
-}
-
-header nav a {
-    margin-left: 1.75rem;
-    font-weight: 500;
-    transition: color 0.2s ease;
-}
-
-header nav a:hover {
-    color: var(--color-accent);
-}
-
-/* Internal Article Presentation */
 article h1 {
     font-size: 3rem;
     font-weight: 400;
@@ -137,7 +146,6 @@ blockquote p {
     margin-bottom: 0;
 }
 
-/* Sidebar Component Modules */
 aside section {
     margin-bottom: 3.5rem;
 }
@@ -173,7 +181,6 @@ aside ul li a:hover {
     color: var(--color-accent);
 }
 
-/* Tag Layout Component */
 aside ul.tags {
     display: flex;
     flex-wrap: wrap;
@@ -191,7 +198,6 @@ aside ul.tags li {
     margin-bottom: 0;
 }
 
-/* Bottom Page Anchor */
 footer {
     margin-top: 6rem;
     padding-top: 2rem;
