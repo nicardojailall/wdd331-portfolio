@@ -177,3 +177,26 @@ footer {
     color: var(--color-muted);
     text-align: center;
 }
+.editorial-page header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding-bottom: 1rem;
+}
+
+.editorial-page header nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.editorial-page header nav a {
+  text-decoration: none;
+  color: var(--color-text);
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+}
