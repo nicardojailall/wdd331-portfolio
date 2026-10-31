@@ -92,3 +92,17 @@ header nav a[aria-current="page"]::before {
   gap: 0.75rem;
   flex-wrap: wrap;
 }
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.25rem;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid var(--color-border);
+    
+    /* REMOVE global max-width constraints from header element itself */
+    max-width: 100%; 
+    width: 100%;
+    padding-left: 2rem;  /* Gives breathing room at edge of screen */
+    padding-right: 2rem; /* Gives breathing room at edge of screen */
+}
