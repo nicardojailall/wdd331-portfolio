@@ -77,3 +77,18 @@ header nav a.active::before,
 header nav a[aria-current="page"]::before {
     display: none;
 }
+.editorial-page header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 1150px;
+  margin: 0 auto 2rem auto;
+}
+
+.editorial-page header nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
