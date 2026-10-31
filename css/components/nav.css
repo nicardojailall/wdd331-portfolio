@@ -106,3 +106,45 @@ header {
     padding-left: 2rem;  /* Gives breathing room at edge of screen */
     padding-right: 2rem; /* Gives breathing room at edge of screen */
 }
+/* ==========================================================================
+   Structural Layout with grid-template-areas
+   ========================================================================== */
+
+.editorial-page .layout {
+    max-width: 1150px;
+    margin: 0 auto;
+    display: grid;
+    /* Mobile-first: single column stacked area track */
+    grid-template-areas: 
+        "article-content"
+        "sidebar-content";
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+}
+
+/* Map semantic container elements directly to the grid map rules */
+.editorial-page main {
+    grid-area: article-content;
+}
+
+.editorial-page aside {
+    grid-area: sidebar-content;
+}
+
+/* Desktop Responsive Layout Transition */
+@media (min-width: 820px) {
+    .editorial-page .layout {
+        /* Sidebar sits on the right with a fixed width track of 280px */
+        grid-template-areas: "article-content sidebar-content";
+        grid-template-columns: minmax(0, 1fr) 280px;
+        gap: 5rem;
+    }
+}
+footer {
+    margin-top: 6rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    text-align: center;
+}
