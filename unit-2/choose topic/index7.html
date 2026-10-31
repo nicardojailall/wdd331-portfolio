@@ -9,13 +9,15 @@
 <body>
 
   <!-- Controls to swap layout flow instantly -->
+    <!-- Fixed Layout Controls -->
   <header class="demo-controls">
-    <button onclick="document.documentElement.dir = 'ltr'">Set Left-to-Right (LTR)</button>
-    <button onclick="document.documentElement.dir = 'rtl'">Set Right-to-Left (RTL)</button>
+    <button onclick="document.documentElement.setAttribute('dir', 'ltr')">Set Left-to-Right (LTR)</button>
+    <button onclick="document.documentElement.setAttribute('dir', 'rtl')">Set Right-to-Left (RTL)</button>
   </header>
 
+
   <main class="gallery-layout">
-    
+    7
     <!-- Profile Card (Intrinsic Sizing focus) -->
     <section class="card profile-card">
       <div class="image-wrapper">
