@@ -148,3 +148,26 @@ footer {
     color: var(--color-muted);
     text-align: center;
 }
+/* ==========================================================================
+   Header Component Architecture
+   ========================================================================== */
+
+.articles-page header {
+    max-width: 1200px;
+    margin: 0 auto 4rem auto;
+    width: 100%;
+    text-align: left; /* Aligns cleanly with the card grid edge bounds */
+}
+
+.articles-page header h1 {
+    font-size: 2.5rem;
+    color: var(--color-primary, #1e293b);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.articles-page header p {
+    font-size: 1.1rem;
+    color: var(--color-muted, #64748b); /* Soft muted subtitle text */
+}
