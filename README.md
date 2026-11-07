@@ -18,3 +18,7 @@ https://nicardojailall.github.io/wdd331-portfolio/unit-4/grid-layouts/editorial.
 Editorial Grid
 https://nicardojailall.github.io/wdd331-portfolio/unit-4/grid-layouts/cards.html
 Card Grid
+https://nicardojailall.github.io/wdd331-portfolio/unit-4/advanced/container-demo.html
+Container Demo
+https://nicardojailall.github.io/wdd331-portfolio/unit-4/advanced/sticky-demo.html
+Sticky Demo
