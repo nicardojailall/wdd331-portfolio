@@ -43,20 +43,18 @@
                 <section id="section-1" class="content-block">
                     <h2>01. Architectural Layouts</h2>
                     <p>Position sticky operates as a hybrid of relative and fixed positioning. The element is treated as relatively positioned until it crosses a specified threshold parameter within its scroll container—at which point it locks into a fixed-coordinate plane relative to its nearest scrolling ancestor structural boundary.</p>
-                    <p>For sticky mechanisms to engage accurately, the element must reside within a parent tracking lane that provides adequate vertical height room to scroll through. If the parent container height matches the sticky element height precisely, no scrolling space exists, and the element will remain static.</p>
-                </section>
+                   
 
                 <section id="section-2" class="content-block">
                     <h2>02. The Overflow Hazard</h2>
                     <p>The most notorious point of failure with sticky layout rules involves the upstream parent chain. If any ancestor node positioned between the sticky element and the absolute viewport scroll container declares an overflow property other than visible (such as hidden, scroll, or auto), the sticky behavior breaks instantly and silently.</p>
-                    <p>This occurs because the browser reframes the overflow-blocked ancestor as a brand new independent scrolling context. The sticky element begins measuring its tracking boundaries against that immediate parent node instead of the main page viewport. Because that wrapper container does not actively scroll its own local layout coordinates, the sticky child remains trapped in place.</p>
+                    
                 </section>
 
                 <section id="section-3" class="content-block">
                     <h2>03. Engineering Solutions</h2>
                     <p>Web developers frequently add overflow: hidden to clear floats, clip layout bleed, or introduce border-radius edge masks on structural modules. Doing this indiscriminately along the layout path will systematically dismantle sticky components below it.</p>
-                    <p>To safely isolate these behaviors, visual modifications like border-radius clipping should be shifted downwards directly onto the components themselves, or managed via non-destructive CSS clip-path masks that preserve the layout engine's native scrolling paths.</p>
-                </section>
+                  
             </main>
 
         </div>
