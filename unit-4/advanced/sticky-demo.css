@@ -1,0 +1,182 @@
+/* ==========================================================================
+   Global Foundations & Baseline Typography
+   ========================================================================== */
+
+:root {
+    --color-bg: #f8fafc;
+    --color-surface: #ffffff;
+    --color-border: #cbd5e1;
+    --color-primary: #0f172a;
+    --color-accent: #0284c7;
+    --color-text: #334155;
+    --font-sans: system-ui, -apple-system, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.7;
+}
+
+.demo-masthead {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.demo-masthead p {
+    color: #94a3b8;
+    margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   Structural Layout & Sticky Implementation
+   ========================================================================== */
+
+.layout-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+/* 
+   THE STICKY ENGINE:
+   This element target must receive an explicit structural offset anchor tracking rule 
+   (top: 2rem) or it will remain static on the page grid.
+*/
+.sticky-toc {
+    position: -webkit-sticky; /* Legacy engine fallback protection */
+    position: sticky;
+    top: 2rem; /* REQUIRED OFFSET: Pin location relative to top edge of viewport scroll */
+    
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.sticky-toc h3 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-primary);
+    margin-bottom: 1.25rem;
+    border-bottom: 2px solid var(--color-bg);
+    padding-bottom: 0.5rem;
+}
+
+.sticky-toc ul {
+    list-style: none;
+}
+
+.sticky-toc li {
+    margin-bottom: 0.75rem;
+}
+
+.sticky-toc a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.sticky-toc a:hover,
+.sticky-toc a.active {
+    color: var(--color-accent);
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--color-border);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981;
+    border-radius: 50%;
+}
+
+/* Expansive content stream to create page depth for scrolling */
+.content-stream {
+    max-width: 720px;
+}
+
+.content-block {
+    margin-bottom: 5rem;
+}
+
+.content-block h2 {
+    font-size: 1.75rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.content-block p {
+    margin-bottom: 1.25rem;
+}
+
+.demo-footer {
+    background-color: #1e293b;
+    color: #94a3b8;
+    text-align: center;
+    padding: 3rem;
+    margin-top: 10rem;
+}
+
+/* ==========================================================================
+   THE OVERFLOW PITFALL LAB (RECONCILIATION ZONE)
+   ========================================================================== */
+
+.ancestor-overflow-wrapper {
+    /* 
+       ======================================================================
+       THE BREAKING BUG EXPERIMENT:
+       Uncommenting lines below (overflow: hidden) introduces the silent failure.
+       ======================================================================
+       overflow: hidden; 
+       border-radius: 24px; 
+    */
+
+    /* 
+       ======================================================================
+       CRITICAL ASSIGNMENT FIX LOG & ARCHITECTURAL ANALYSIS:
+       
+       1. WHAT CAUSED THE PROBLEM:
+          Applying `overflow: hidden` to this intermediate parent container causes 
+          the sticky tracking engine to break. The browser treats this wrapper as a 
+          new local scroll-boundary node instead of looking up to the global viewport window. 
+          Since this wrapper doesn't scroll its own layout dimensions, the sidebar stays stuck.
+          
+       2. RECONCILIATION METHODOLOGY:
+          To retain the intended visual constraint (clipping layout bleed and masking edges) 
+          without breaking sticky behavior, we must avoid introducing layout-disruptive overflow 
+          properties on containers sitting between the sticky element and the global window scroll.
+          
+          Instead, we substitute the traditional `overflow: hidden` mask rule with a 
+          non-destructive modern CSS `clip-path` polygon frame boundary. This achieves the 
+          exact same physical layout clipping effect, but completely bypasses the browser's 
+          scrolling block defense system, leaving the sticky tracking engine fully functional.
+       ======================================================================
+    */
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}

@@ -1,0 +1,234 @@
+/* ==========================================================================
+   Global Baseline Styles & Layout Setup
+   ========================================================================== */
+
+:root {
+    --color-bg: #f8fafc;
+    --color-card-bg: #ffffff;
+    --color-border: #e2e8f0;
+    --color-text-main: #0f172a;
+    --color-text-muted: #64748b;
+    --color-accent: #2563eb;
+    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text-main);
+    padding: 2rem;
+    line-height: 1.5;
+}
+
+.demo-header {
+    max-width: 1400px;
+    margin: 0 auto 3rem auto;
+    text-align: center;
+}
+
+.demo-header p {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+/* Page context layout framework (combines a static column and a fluid one) */
+.demo-layout-grid {
+    display: grid;
+    grid-template-columns: minmax(280px, 320px) 1fr;
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.demo-panel {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.demo-panel h2 {
+    font-size: 1.1rem;
+    color: var(--color-text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.demo-panel > p {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   Container Context Declaration
+   ========================================================================== */
+
+.component-wrapper {
+    /* 
+       Establish an inline-size containment context on the wrapper.
+       This tracks changes to the parent width without observing height alterations.
+       We name it 'layoutBox' to safely target specific ancestor lookups.
+    */
+    container-type: inline-size;
+    container-name: layoutBox;
+    width: 100%;
+}
+
+/* ==========================================================================
+   Component Baseline Default State (Mobile / Narrow First)
+   ========================================================================== */
+
+.profile-badge {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    
+    /* Default: Vertical block layout stacking */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+.badge-avatar {
+    width: 64px;
+    height: 64px;
+    background-color: var(--color-accent);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.badge-content h3 {
+    font-size: 1.15rem;
+    color: var(--color-text-main);
+    margin-bottom: 0.25rem;
+}
+
+.badge-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
+}
+
+.badge-bio {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--color-text-main);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--color-accent);
+}
+
+/* ==========================================================================
+   @container Breakpoint Rules
+   ========================================================================== */
+
+/* State 2: Medium/Wide Containers (Horizontal Shift) */
+@container layoutBox (min-width: 450px) {
+    .profile-badge {
+        /* Transform from vertical stack to a multi-column asymmetric grid layout */
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        text-align: left;
+        align-items: start;
+        gap: 1.25rem;
+        padding: 1.5rem;
+    }
+
+    .badge-avatar {
+        grid-column: 1;
+        grid-row: 1 / span 2; /* Stretch avatar alongside text heights */
+        width: 72px;
+        height: 72px;
+    }
+
+    .badge-content {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .badge-actions {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: end;
+    }
+}
+
+/* State 3: Extra Wide Containers (Grand Landscape Layout) */
+@container layoutBox (min-width: 700px) {
+    .profile-badge {
+        /* Reconfigure grid tracks into an expansive single row timeline flow */
+        grid-template-columns: auto 1fr auto;
+        grid-template-rows: auto;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .badge-avatar {
+        grid-column: 1;
+        grid-row: 1;
+        width: 80px;
+        height: 80px;
+        font-size: 1.5rem;
+    }
+
+    .badge-content {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .badge-content .badge-bio {
+        font-size: 0.95rem;
+        max-width: 550px; /* Prevent text line lengths from stretching uncomfortably wide */
+    }
+
+    .badge-actions {
+        grid-column: 3;
+        grid-row: 1;
+    }
+}
+
+/* Responsive framework fallback for small viewports */
+@media (max-width: 768px) {
+    .demo-layout-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}

@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Container Queries Layout Demonstration</title>
+    <link rel="stylesheet" href="container-demo.css">
+</head>
+<body>
 
+    <header class="demo-header">
+        <h1>Container Queries Demonstration</h1>
+        <p>The exact same component adapting seamlessly based entirely on its parent container's width.</p>
+    </header>
+
+    <main class="demo-layout-grid">
+        
+        <!-- Context 1: Narrow Container (Simulating a Sidebar) -->
+        <section class="demo-panel narrow-context">
+            <h2>Narrow Sidebar Context</h2>
+            <p>Parent constrained to 300px max-width</p>
+            
+            <div class="component-wrapper">
+                <article class="profile-badge">
+                    <div class="badge-avatar">JS</div>
+                    <div class="badge-content">
+                        <h3>Nicardo Jailall</h3>
+                        <p class="badge-title">ICT</p>
+                        <p class="badge-bio">Building scalable design systems and reactive modern layout engines.</p>
+                    </div>
+                    <div class="badge-actions">
+                        <a href="#portfolio" class="btn">View Work</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Context 2: Wide Container (Simulating Main Content) -->
+        <section class="demo-panel wide-context">
+            <h2>Wide Main Content Context</h2>
+            <p>Parent occupies remaining flexible viewport space</p>
+            
+            <div class="component-wrapper">
+                <article class="profile-badge">
+                    <div class="badge-avatar">JS</div>
+                    <div class="badge-content">
+                        <h3>Nicardo Jailall</h3>
+                        <p class="badge-title">ICT</p>
+                        <p class="badge-bio">Building scalable design systems and reactive modern layout engines.</p>
+                    </div>
+                    <div class="badge-actions">
+                        <a href="#portfolio" class="btn">View Work</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

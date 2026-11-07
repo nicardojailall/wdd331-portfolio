@@ -1,12 +1,23 @@
 /* ==========================================================================
-   Structural Card Grid System
+   Structural Card Grid System (Subgrid Enhanced)
    ========================================================================== */
 
 .articles-page .card-grid {
     display: grid;
-    /* Cards are at least 240px and fill space equally; min() guards against small viewport overflow */
+    /* Responsive columns using the minmax() safety pattern */
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
-    gap: 2rem;
+    
+    /* 
+       Define three row tracks per grid row: 1) Title, 2) Body Text, 3) Footer Link.
+       Using auto-fit generates explicit row stacks that repeat implicitly.
+       We align items to 'stretch' so cards fill the entire track height.
+    */
+    grid-template-rows: auto auto auto;
+    align-items: stretch;
+    
+    /* row-gap handles vertical space across components when subgrid is active */
+    row-gap: 2rem;
+    column-gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
@@ -22,34 +33,14 @@
     border: 1px solid var(--color-border, #e2e8f0);
     border-radius: 6px;
     overflow: hidden;
-    
-    /* Establish a vertical column stack layout for the card */
-    display: flex;
-    flex-direction: column;
-}
-
-/* Requirement 3: First div handles fixed-height image placeholder role */
-.articles-page .card > div:first-child[aria-hidden="true"] {
-    width: 100%;
-    height: 160px;
-    background-color: var(--color-primary, #1e293b);
-    opacity: 0.1; /* Subtle default shading token */
-    flex-shrink: 0; /* Protect track from collapsing structural shifts */
-}
-
-/* Card Body Content Wrap (The second div container holding heading, text, and link) */
-.articles-page .card > div:not([aria-hidden="true"]) {
     padding: 1.5rem;
     
-    /* Turn the content area into a nested vertical flexbox */
+    /* Fallback: Stack content using a traditional vertical column arrangement */
     display: flex;
     flex-direction: column;
-    
-    /* Forces the body wrapper to take up all leftover structural vertical space */
-    flex-grow: 1;
 }
 
-/* Inner Text Element Styling */
+/* Inner Element Typography & Layout Baselines */
 .articles-page .card h2 {
     font-family: var(--font-sans, system-ui, sans-serif);
     font-size: 1.25rem;
@@ -66,7 +57,6 @@
     margin-bottom: 1.5rem;
 }
 
-/* Requirement 4: Action Link Bottom Alignment Anchor */
 .articles-page .card a {
     font-family: var(--font-sans, system-ui, sans-serif);
     font-size: 0.85rem;
@@ -75,15 +65,57 @@
     letter-spacing: 0.5px;
     color: var(--color-accent, #b45309);
     text-decoration: none;
-    
-    /* CSS FIX: Auto margin absorbs vertical whitespace, anchoring link to bottom */
-    margin-top: auto;
-    
+    margin-top: auto; /* Fallback vertical push */
     display: inline-block;
-    align-self: flex-start; /* Keeps hit target bound tightly to link width */
+    align-self: flex-start;
     transition: color 0.2s ease;
 }
 
 .articles-page .card a:hover {
     color: var(--color-primary, #1e293b);
+}
+
+/* ==========================================================================
+   Progressive Enhancement: @supports Subgrid Guard
+   ========================================================================== */
+
+@supports (grid-template-rows: subgrid) {
+    /* 
+       When subgrid is supported, the children inside the card (h2, p, a) 
+       must participate directly in the parent grid's tracking system.
+    */
+    .articles-page .card {
+        display: grid;
+        /* Force the card to bridge exactly 3 distinct row tracks on the parent */
+        grid-row: span 3;
+        /* Inherit track sizing directly from the parent grid grid-template-rows */
+        grid-template-rows: subgrid;
+        
+        /* 
+           Zero out internal margins or padding that would throw off subgrid lines.
+           The parent's row-gap handles structural spacing between elements.
+        */
+        row-gap: 0; 
+    }
+
+    /* Assign each component strictly to its inherited track sequence */
+    .articles-page .card h2 {
+        grid-row: 1;
+        margin-bottom: 0;
+        align-self: start;
+    }
+
+    .articles-page .card p {
+        grid-row: 2;
+        margin-bottom: 0;
+        padding-top: 0.75rem; /* Re-introduce localized breathing room */
+        padding-bottom: 1.5rem;
+        align-self: start;
+    }
+
+    .articles-page .card a {
+        grid-row: 3;
+        margin-top: 0; /* Auto margin is obsolete under subgrid tracking */
+        align-self: end; /* Pins link cleanly to the bottom boundary of track 3 */
+    }
 }
