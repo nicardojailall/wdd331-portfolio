@@ -163,19 +163,15 @@ body {
        
        1. WHAT CAUSED THE PROBLEM:
           Applying `overflow: hidden` to this intermediate parent container causes 
-          the sticky tracking engine to break. The browser treats this wrapper as a 
-          new local scroll-boundary node instead of looking up to the global viewport window. 
-          Since this wrapper doesn't scroll its own layout dimensions, the sidebar stays stuck.
+          the sticky tracking engine to break. 
           
        2. RECONCILIATION METHODOLOGY:
-          To retain the intended visual constraint (clipping layout bleed and masking edges) 
-          without breaking sticky behavior, we must avoid introducing layout-disruptive overflow 
-          properties on containers sitting between the sticky element and the global window scroll.
+          To retain the intended visual constraint
+          without breaking sticky behavior, I  avoided introducing layout-disruptive overflow 
+          properties.
           
-          Instead, we substitute the traditional `overflow: hidden` mask rule with a 
-          non-destructive modern CSS `clip-path` polygon frame boundary. This achieves the 
-          exact same physical layout clipping effect, but completely bypasses the browser's 
-          scrolling block defense system, leaving the sticky tracking engine fully functional.
+          I substitute the traditional `overflow: hidden` mask rule with a 
+          non-destructive modern CSS `clip-path` polygon frame boundary.
        ======================================================================
     */
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
