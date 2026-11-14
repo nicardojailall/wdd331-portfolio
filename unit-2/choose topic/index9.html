@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Font Subsetting & Performance Demo</title>
+  <link rel="stylesheet" href="main9.css">
+</head>
+<body>
+
+  <main class="container">
+    <header class="header">
+      <h1>Font Subsetting and Performance</h1>
+      <p class="subtitle">Reduce web font file sizes by stripping unused glyphs and characters.</p>
+    </header>
+
+    <section class="card demo-card">
+      <h2>Live Typography Preview</h2>
+      <p class="hero-text">
+        Modern web design demands fast rendering speeds. Subsetting ensures that your browser only downloads the characters you actually use on screen.
+      </p>
+    </section>
+
+    <section class="card metrics-card">
+      <h2>Performance Impact Metrics</h2>
+      <div class="metrics-grid">
+        <div class="metric-item original">
+          <span class="label">Original File Size</span>
+          <span class="value">145 KB</span>
+          <span class="desc">Includes full Latin, Cyrillic, and Greek glyphs.</span>
+        </div>
+        <div class="metric-item subset">
+          <span class="label">Subsetted File Size</span>
+          <span class="value">28 KB</span>
+          <span class="desc">Stripped down to Basic ASCII (U+0020-007F).</span>
+        </div>
+        <div class="metric-item savings">
+          <span class="label">Total Savings</span>
+          <span class="value">-80.6%</span>
+          <span class="desc">Speeds up First Contentful Paint (FCP) and LCP.</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

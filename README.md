@@ -22,3 +22,7 @@ https://nicardojailall.github.io/wdd331-portfolio/unit-4/advanced/container-demo
 Container Demo
 https://nicardojailall.github.io/wdd331-portfolio/unit-4/advanced/sticky-demo.html
 Sticky Demo
+## Typography System
+- **Token Location:** `css/tokens/variables.css`
+- **Modular Scale Ratio:** Major Third (1.25) with fluid `clamp()` headings
+- **Custom Web Font:** **Inter** (Body) and **Plus Jakarta Sans** (Headings) loaded via Google Fonts with `font-display: swap`.

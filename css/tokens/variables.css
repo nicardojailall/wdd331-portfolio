@@ -1,22 +1,51 @@
 :root {
     /* ========================================== */
-    /* 1. Typography                              */
+    /* 1. Typography & Modular Scale (1.25 Ratio) */
     /* ========================================== */
-    --font-family-sans: system-ui, sans-serif;
-    --font-family-mono: monospace;
-    --font-size-sm: 1.4rem;
-    --font-size-md: 1.6rem;
-    --font-size-lg: 1.8rem;
+    
+    /* Custom Web Font Family Tokens by Role */
+    --font-family-heading: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-family-body:    "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-family-mono:    monospace;
+
+    /* Base modular scale steps (numeric positions) */
+    --font-size-xs:  1.024rem; /* Small captions / fixed */
+    --font-size-sm:  1.28rem;  /* Supporting text / fixed */
+    --font-size-md:  1.6rem;   /* Base body size / fixed */
+    
+    /* Fluid scale steps (calculated for 320px to 1200px viewports) */
+    --font-size-lg:  clamp(1.8rem, 1.655rem + 0.73vw, 2.2rem);    /* Subheadings */
+    --font-size-xl:  clamp(2.2rem, 1.909rem + 1.45vw, 3.0rem);    /* Medium headings */
+    --font-size-xxl: clamp(2.6rem, 2.164rem + 2.18vw, 3.8rem);    /* Large headings */
+    --font-size-xxxl: clamp(3.0rem, 2.345rem + 3.27vw, 4.8rem);   /* Display text */
+
+    /* ========================================== */
+    /* 2. Semantic Roles & Line Heights           */
+    /* ========================================== */
+    --font-size-body:       var(--font-size-md);
+    --font-size-caption:    var(--font-size-xs);
+    --font-size-heading-sm: var(--font-size-lg);
+    --font-size-heading-md: var(--font-size-xl);
+    --font-size-heading-lg: var(--font-size-xxl);
+    --font-size-display:    var(--font-size-xxxl);
+
+    /* Role-tuned line heights */
+    --line-height-body:    1.65;    /* Open line height so prose breathes */
+    --line-height-caption: 1.4;     /* Compact for small metadata */
+    --line-height-heading: 1.2;     /* Balanced for standard headings */
+    --line-height-display: 1.05;    /* Tighter line height for multi-line display headers */
 
     /* Legacy typography fallbacks */
-    --font-body: var(--font-family-sans);
+    --font-body: var(--font-family-body);
     --font-code: var(--font-family-mono);
+    --text-xs: var(--font-size-xs);
     --text-sm: var(--font-size-sm);
     --text-md: var(--font-size-md);
     --text-lg: var(--font-size-lg);
+    --text-xl: var(--font-size-xl);
 
     /* ========================================== */
-    /* 2. Spacing                                 */
+    /* 3. Spacing                                 */
     /* ========================================== */
     --spacing-xs: 4px;
     --spacing-sm: 8px;
@@ -32,7 +61,7 @@
     --space-xl: var(--spacing-xl);
 
     /* ========================================== */
-    /* 3. Radii (Borders)                         */
+    /* 4. Radii (Borders)                         */
     /* ========================================== */
     --radius-sm: 4px;
     --radius-md: 6px;
@@ -44,7 +73,7 @@
     --border-radius-lg: var(--radius-lg);
 
     /* ========================================== */
-    /* 4. Transitions                             */
+    /* 5. Transitions                             */
     /* ========================================== */
     --transition-base: 0.2s ease;
 
@@ -52,22 +81,9 @@
     --transition-fast: var(--transition-base);
 
     /* ========================================== */
-    /* 5. Icons                                   */
+    /* 6. Icons & Accessibility                   */
     /* ========================================== */
     --icon-size-sm: 24px;
     --icon-size-md: 32px;
-
-    /* ========================================== */
-    /* 6. Focus & Accessibility                   */
-    /* ========================================== */
     --outline-width: 2px;
-}
-.card {
-    box-shadow: var(--shadow-sm);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.card:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-4px);
 }

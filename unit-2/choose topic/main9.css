@@ -1,0 +1,114 @@
+/* CSS Variables & Tokens */
+:root {
+  --font-primary: 'CustomSubsetFont', sans-serif;
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent-original: #f43f5e;
+  --accent-subset: #10b981;
+  --accent-savings: #38bdf8;
+}
+
+/* @font-face with unicode-range configuration */
+@font-face {
+  font-family: 'CustomSubsetFont';
+  src: url('fonts/custom-subset.woff2') format('woff2');
+  unicode-range: U+0020-007F; /* Restrict to Basic Latin characters */
+  font-display: swap;
+}
+
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding: 2rem 1rem;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Header */
+.header {
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* Cards */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.hero-text {
+  font-size: 1.15rem;
+  color: #e2e8f0;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.metric-item {
+  background: rgba(15, 23, 42, 0.4);
+  padding: 1.25rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--text-muted);
+}
+
+.metric-item.original { border-left-color: var(--accent-original); }
+.metric-item.subset { border-left-color: var(--accent-subset); }
+.metric-item.savings { border-left-color: var(--accent-savings); }
+
+.label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.value {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin: 0.25rem 0;
+}
+
+.desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
