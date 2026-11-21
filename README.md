@@ -26,3 +26,5 @@ Sticky Demo
 - **Token Location:** `css/tokens/variables.css`
 - **Modular Scale Ratio:** Major Third (1.25) with fluid `clamp()` headings
 - **Custom Web Font:** **Inter** (Body) and **Plus Jakarta Sans** (Headings) loaded via Google Fonts with `font-display: swap`.
+https://nicardojailall.github.io/wdd331-portfolio/resume
+resume
