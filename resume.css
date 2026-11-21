@@ -1,0 +1,388 @@
+
+
+
+/* =================================
+   GENERAL PAGE STYLE
+   ================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+
+/* =================================
+   NAVIGATION
+   ================================= */
+
+header {
+    background-color: var(--color-primary);
+    padding: 18px;
+}
+
+nav {
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* =================================
+   MAIN CONTENT
+   ================================= */
+
+main {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+/* =================================
+   RESUME
+   ================================= */
+
+.resume-header {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+h1 {
+    color: var(--color-primary);
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+.resume-header p {
+    color: var(--color-muted);
+    font-size: 1.1rem;
+}
+
+section {
+    margin-top: var(--spacing-lg);
+}
+
+h2 {
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 5px;
+}
+
+h3 {
+    color: var(--color-text);
+    margin-bottom: 5px;
+}
+
+p {
+    margin: var(--spacing-sm) 0;
+}
+
+ul {
+    padding-left: 25px;
+}
+
+li {
+    margin-bottom: 7px;
+}
+
+
+/* =================================
+   SKILLS
+   ================================= */
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+    list-style: none;
+}
+
+.skills li {
+    background-color: #e0e7ff;
+    color: var(--color-primary-dark);
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+}
+
+
+/* =================================
+   CONTACT FORM
+   ================================= */
+
+.contact-section {
+    margin-top: 50px;
+    padding-top: 20px;
+}
+
+.contact-section > p {
+    color: var(--color-muted);
+}
+
+.contact-form {
+    margin-top: var(--spacing-lg);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: 3px solid var(--color-focus);
+    border-color: var(--color-primary);
+}
+
+
+/* =================================
+   TEXTAREA
+   ================================= */
+
+.form-group textarea {
+    min-height: 120px;
+    max-height: 350px;
+    resize: vertical;
+
+    /* Allows textarea to grow with content
+       in supported browsers */
+    field-sizing: content;
+}
+
+
+/* =================================
+   CHECKBOX
+   ================================= */
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.checkbox-group input {
+    width: 18px;
+    height: 18px;
+
+    /* Uses our brand color */
+    accent-color: var(--color-primary);
+}
+
+
+/* =================================
+   BUTTON
+   ================================= */
+
+button {
+    width: 100%;
+    padding: 12px;
+
+    border: none;
+    border-radius: var(--radius-sm);
+
+    background-color: var(--color-primary);
+    color: white;
+
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--color-primary-dark);
+}
+
+button:focus {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 2px;
+}
+
+
+/* =================================
+   FOOTER
+   ================================= */
+
+footer {
+    text-align: center;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+
+/* =================================
+   MOBILE SCREEN
+   ================================= */
+
+@media (max-width: 600px) {
+
+    main {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px 10px;
+    }
+}
+
+
+/* =================================
+   PRINT STYLESHEET
+   ================================= */
+
+@media print {
+
+    @page {
+        size: letter;
+        margin: 0.6in;
+    }
+
+    body {
+        background: white;
+        color: black;
+
+        font-family: Georgia,
+                     "Times New Roman",
+                     serif;
+
+        font-size: 11pt;
+        line-height: 1.4;
+    }
+
+
+    /* Hide items that are not needed
+       when printing the resume */
+
+    header,
+    nav,
+    footer,
+    .contact-section,
+    button {
+        display: none;
+    }
+
+
+    /* Remove screen styling */
+
+    main {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+
+        background: white;
+
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+
+    /* Resume name */
+
+    h1 {
+        color: #1d4ed8;
+        font-size: 24pt;
+        margin-top: 0;
+    }
+
+
+    /* Section headings */
+
+    h2 {
+        color: #1d4ed8;
+        font-size: 15pt;
+
+        border-bottom: 2px solid #1d4ed8;
+
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+
+    h3 {
+        font-size: 12pt;
+    }
+
+
+    p,
+    li {
+        font-size: 11pt;
+
+        /* Prevent one line sitting alone */
+
+        orphans: 3;
+        widows: 3;
+    }
+
+
+    /* Show URLs on printed links */
+
+    main a::after {
+        content: " (" attr(href) ")";
+        font-size: 9pt;
+        color: #333333;
+    }
+
+
+    /* Do not show URLs for internal links */
+
+    main a[href^="#"]::after {
+        content: "";
+    }
+
+
+    /* Prevent resume entries from being
+       split between two pages */
+
+    article {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+
+    /* Preserve important skill colors */
+
+    .skills li {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+}

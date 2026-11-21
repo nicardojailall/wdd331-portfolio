@@ -1,0 +1,199 @@
+:root {
+  --bg-canvas: #f4f6fb;
+  --bg-surface: #ffffff;
+  --bg-subtle: #eef2ff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --accent: #2563eb;
+  --accent-text: #ffffff;
+  --border-color: #dbe2ef;
+  --transition-speed: 180ms;
+
+  /* Safe area fallbacks */
+  --inset-top: env(safe-area-inset-top, 0px);
+  --inset-right: env(safe-area-inset-right, 0px);
+  --inset-bottom: env(safe-area-inset-bottom, 0px);
+  --inset-left: env(safe-area-inset-left, 0px);
+}
+
+/* Respect system dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-canvas: #0b1020;
+    --bg-surface: #131c31;
+    --bg-subtle: #1e2942;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent: #3b82f6;
+    --accent-text: #ffffff;
+    --border-color: #24324d;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-speed: 0ms;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+.app-shell {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top header: background bleeds to edge, content stays inside top/side insets */
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-color);
+  padding-top: var(--inset-top);
+  padding-left: max(16px, var(--inset-left));
+  padding-right: max(16px, var(--inset-right));
+}
+
+.top-bar-inner {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand-badge {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.device-hint {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Main content area with space reserved above fixed bottom bar */
+.content {
+  flex: 1;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-left: max(16px, var(--inset-left));
+  padding-right: max(16px, var(--inset-right));
+  padding-bottom: calc(84px + var(--inset-bottom));
+}
+
+.hero-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.hero-card h1 {
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.hero-card p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.info-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.info-card h2 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.info-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Fixed bottom navigation bar: accounts for bottom home bar & side cutouts */
+.bottom-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border-color);
+  padding-top: 10px;
+  padding-left: max(12px, var(--inset-left));
+  padding-right: max(12px, var(--inset-right));
+  padding-bottom: max(10px, var(--inset-bottom));
+}
+
+.nav-btn {
+  min-height: 40px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background-color: var(--bg-subtle);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+.nav-btn.is-active {
+  background-color: var(--accent);
+  color: var(--accent-text);
+}
+
+/* Larger tap targets for touch screens */
+@media (pointer: coarse) {
+  .nav-btn {
+    min-height: 48px;
+  }
+}
+
+/* Landscape adjustment: widen card grid and keep side cutouts clear */
+@media (orientation: landscape) and (min-width: 600px) {
+  .status-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .content {
+    padding-top: 16px;
+  }
+}
