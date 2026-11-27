@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scroll-Driven Animations Demo</title>
+  <link rel="stylesheet" href="main11.css" />
+</head>
+<body>
+  <!-- Scrubbed across the full page scroll position -->
+  <div class="reading-progress" aria-hidden="true"></div>
+
+  <header class="hero">
+    <p class="eyebrow">WDD 331R • Motion Demo</p>
+    <h1>Scroll-Driven Animations</h1>
+    <p class="subtitle">
+      Scroll down to watch the top progress bar scrub smoothly and cards reveal
+      as they enter the viewport—powered by pure CSS.
+    </p>
+  </header>
+
+  <main class="container">
+    <section class="card-grid" aria-label="Feature highlights">
+      <article class="card">
+        <h2>1. Scroll Timeline</h2>
+        <p>
+          <code>animation-timeline: scroll()</code> ties keyframe progress
+          directly to the scroll container instead of a fixed clock duration.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>2. View Timeline</h2>
+        <p>
+          <code>animation-timeline: view()</code> tracks an element as it moves
+          through the scrollport so reveals sync naturally with scrolling.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>3. Animation Range</h2>
+        <p>
+          <code>animation-range: entry 0% cover 35%</code> controls exactly when
+          the reveal starts and finishes relative to the viewport.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>4. Reduced Motion</h2>
+        <p>
+          Wrapping motion in <code>@media (prefers-reduced-motion: no-preference)</code>
+          keeps the page accessible for users who prefer static layouts.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>5. Capstone Ready</h2>
+        <p>
+          Use subtle view timelines for section headers or feature cards in your
+          <code>unit-7/reimagined-home/</code> build without writing scroll JS.
+        </p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,54 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>User Media & Safe Area Insets Demo</title>
-  <link rel="stylesheet" href="main10.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Form Control Styling</title>
+
+    <link rel="stylesheet" href="main10.css">
 </head>
+
 <body>
-  <div class="app-shell">
-    <!-- Top bar respects top safe area inset and horizontal cutouts -->
-    <header class="top-bar">
-      <div class="top-bar-inner">
-        <span class="brand-badge">Media + Safe Area</span>
-        <span class="device-hint">Rotate or resize to test</span>
-      </div>
-    </header>
 
-    <!-- Main scrollable content with safe horizontal/vertical spacing -->
-    <main class="content">
-      <section class="hero-card">
-        <h1>Full-Bleed Shell, Protected Controls</h1>
-        <p>
-          Backgrounds and bars extend into edge-to-edge display regions via
-          <code>viewport-fit=cover</code>, while interactive elements stay inside
-          <code>env(safe-area-inset-*)</code>.
-        </p>
-      </section>
+    <main class="container">
 
-      <section class="status-grid" aria-label="Layout behavior summary">
-        <article class="info-card">
-          <h2>Orientation</h2>
-          <p>Switches padding and side spacing between portrait and landscape.</p>
-        </article>
-        <article class="info-card">
-          <h2>Pointer &amp; Hover</h2>
-          <p>Adapts tap targets for touch screens (<code>pointer: coarse</code>).</p>
-        </article>
-        <article class="info-card">
-          <h2>User Preferences</h2>
-          <p>Honors <code>prefers-color-scheme</code> and <code>prefers-reduced-motion</code>.</p>
-        </article>
-      </section>
-    </main>
+        <h1>Form Control Styling</h1>
+        <p>Customize your preferences below.</p>
 
-    <!-- Fixed bottom bar stays clear of home indicators / gesture bars -->
-    <nav class="bottom-bar" aria-label="Primary actions">
-      <button type="button" class="nav-btn is-active">Overview</button>
-      <button type="button" class="nav-btn">Insets</button>
-      <button type="button" class="nav-btn">Media</button>
-    </nav>
-  </div>
-</body>
-</html>
+        <form>
+
+            <!-- Select Menu -->
+            <div class="form-group">
+                <label for="theme">Choose a Theme:</label>
+
+                <select id="theme" name="theme">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="blue">Blue</option>
+                </select>
+            </div>
+
+
+            <!-- Checkboxes -->
+            <fieldset>
+                <legend>Notifications</legend>
+
+                <label>
+                    <input type="checkbox" name="email">
+                    Email Notifications
+                </label>
+
+                <label>
+                    <input type="checkbox" name="updates">
+                    Weekly Updates
+                </label>
+            </fieldset
